@@ -1,0 +1,11 @@
+// # ------------------- SNIP -------------------
+// snippet rotate
+// @include rotate(${1:degrees});
+// endsnippet
+// # ------------------- SNAP -------------------
+
+@mixin rotate-element($deg) {
+	@include rotate($deg + deg);
+	$ms_rotate: $deg / 90;
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=#{$ms_rotate});
+	}

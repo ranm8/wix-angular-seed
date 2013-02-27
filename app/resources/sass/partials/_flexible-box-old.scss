@@ -1,0 +1,47 @@
+// # ------------------- SNIP -------------------
+// snippet flexible-box
+// @include flexible-box(${1:opposite-axis}, ${2:same-axis});
+// endsnippet
+// # ------------------- SNAP -------------------
+
+@mixin flexible-box($opposite-axis: horizontal, $same-axis: none) {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-box;
+	display: box;
+	width: 100%;
+
+	-webkit-box-orient: $opposite-axis;
+	-moz-box-orient: $opposite-axis;
+	-ms-box-orient: $opposite-axis;
+	box-orient: $opposite-axis;
+
+	@if $same-axis != none {
+	-webkit-box-pack: $same-axis;
+	-moz-box-pack: $same-axis;
+	-ms-box-pack: $same-axis;
+	box-pack: $same-axis;
+	}
+}
+
+// # ------------------- SNIP -------------------
+// snippet flex
+// @include flexible-box-flex(${1:flex}, ${2:order});
+// endsnippet
+// # ------------------- SNAP -------------------
+
+@mixin flexible-box-flex($flex:1 , $order: 0) {
+	-webkit-box-flex: $flex;
+	-moz-box-flex: $flex;
+	-ms-box-flex: $flex;
+	box-flex: $flex;
+
+	@if $order != 0 {
+	/* Create groups of elements */
+	/* Displayed in ascending order */
+	-webkit-box-ordinal-group: $order;
+	-moz-fbox-ordinal-group: $order;
+	-ms-box-ordinal-group: $order;
+	box-ordinal-group: $order;
+	}
+}

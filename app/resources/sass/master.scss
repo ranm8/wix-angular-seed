@@ -1,0 +1,229 @@
+@import "compass/css3";
+@import "partials/_helper.scss";
+
+/* ============================================================================= */
+/* HTML5 Boilerplate nuggets */
+/* ============================================================================= */
+.enter:after{
+	content: '\A';
+	white-space: pre; }
+
+/* image replacement */
+.ir {
+    font: 0/0 a;
+    text-shadow: none;
+    color: transparent;
+	background-color: transparent;
+	border: none; }
+.nir {
+	/* dimenstions of image are required */
+	padding:0;
+	margin:0;
+	overflow:hidden;
+	display: inline-block; }
+.nir:before {
+	content: ""; /* image path required */
+	display:inline-block;
+	font-size:0;
+	line-height:0; }
+
+/* Hide from both screenreaders and browsers */
+.hidden {
+	display: none !important;
+	visibility: hidden; }
+
+/* Hide visually, but available for screenreaders */
+.visuallyhidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px; }
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+	/* allow element to be focusable when navigated to via the keyboard */
+	clip: auto;
+	height: auto;
+	margin: 0;
+	overflow: visible;
+	position: static;
+	width: auto; }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
+
+/* ============================================================================= */
+/* Custom nuggets of gold */
+/* ============================================================================= */
+
+/*inline-block*/
+.inline_block {
+	font-size: 0;
+	text-align: left; }
+.inline_block > * {
+	display: inline-block;
+	zoom:1;
+	*display: inline;
+	vertical-align: top;
+	font-size: 14px; /*for font-size: 0 inline fix*/
+	@include inline-align(20px); }
+
+/* general data list rules */
+dt, dd {
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+	margin: 0; }
+dd { background-image: expression(this.runtimeStyle.backgroundImage="none",this.innerHTML = "<b class=after></b>"+this.innerHTML); }
+dd.after,dd:after {
+	content: '\A';
+	white-space: pre; }
+
+/* general flexible box rules */
+
+/*general navigation rules*/
+.nav ul, ol {
+	font-size: 0;
+	text-align: center;
+	list-style: none;
+	margin: 0;
+	padding: 0; }
+.nav ul li, ol li {
+	display: inline-block;
+	zoom:1;
+	*display: inline;
+	vertical-align: top;
+	font-size: 14px; /*for font-size: 0 inline fix*/ }
+.nav ul li a, ol li a {
+	display: block;
+	padding: 0 10px; }
+.nav ul li:hover a { color: #444; }
+
+/*clearfix*/
+.clearfix { *zoom: 1; }
+.clearfix:before,
+.clearfix:after {
+	content: "";
+	display: table; }
+.clearfix:after { clear: both; }
+
+/*navigation_seperator*/
+.navigation_seperator { position: relative; }
+.navigation_seperator > * { background-image: expression(this.runtimeStyle.backgroundImage="none",this.innerHTML = "<b class=before></b><b class=after></b>"+this.innerHTML); }
+.navigation_seperator > * .after,
+.navigation_seperator > *:after {
+		content: "";
+		border-right: 1px solid #b743c2;
+		height: 8px;
+		display: block;
+		position: absolute;
+		bottom: 7px; }
+.navigation_seperator > *:first-child .after,
+.navigation_seperator > *:first-child:after { border: none;	}
+
+.equal_nav {
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+	-webkit-box-orient: horizontal;
+	-moz-box-orient: horizontal;
+	box-orient: horizontal;
+	-webkit-box-pack: justify;
+	-moz-box-pack: justify;
+	box-pack: justify; }
+.equal_nav > * {
+	-webkit-box-flex:1;
+    -moz-box-flex:1;
+    box-flex:1; }
+
+/* combo boxes */
+.combobox { text-align: left; }
+.combobox h3{
+	@include inline-align(35px);
+	margin: 0; }
+.combobox ul{ list-style: none; margin: 0 35px 0 15px; }
+.combobox ul li {
+	width: 200px;
+	overflow: hidden;
+	background: #fff;
+	padding-left: 10px;
+	font-size: 16px;
+	@include inline-align(35px);
+	position: relative;
+	z-index: 4; }
+.combobox > ul > li:after {
+	content: url("../images/buttons/button_select_arrow.png");
+	height: 35px;
+	width: 36px;
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 2; }
+
+/* second level ul */
+.combobox > ul > ul {
+	display: none;
+	position: absolute;
+	z-index: 3;
+	padding-top: 10px;
+	margin-top: -15px 0 0;
+	@include border-radius(0 0 10px 10px); }
+.combobox > ul:hover > ul { display: block; }
+.combobox > ul > ul > li {
+	width: 150px;
+	border: 1px solid #ccc;
+	border-width: 0 1px 1px; }
+.combobox > ul > ul > li:hover { cursor: pointer; }
+
+/* ============================================================================= */
+/* Site specific nuggets of gold */
+/* ============================================================================= */
+
+.ui-button-text-only,
+.action_links {
+	@include border-radius(4px);
+	background: #45a1d2;
+	@include background(linear-gradient(#45a1d2 50%,#338fbe 50%));
+	@include inline-align(29px, center);
+	color: #fff !important;
+	padding: 0 10px;
+	border: 1px solid #c4c4c4;
+	display: inline-block;
+	&:hover { @include box-shadow(1px 2px 2px #aaa); }
+	&:active { @include box-shadow(0 2px 1px #aaa inset); } }
+
+input[type="text"] {
+	@include inline-align(30px);
+	border: 1px solid #ccc;
+	@include border-radius(3px);
+	@include box-sizing("border-box");
+	padding: 0 10px;
+	color: #b2b2b2;	}
+
+/* checkbox styling */
+input[type="checkbox"] { display: none; }
+input[type="checkbox"] + label:before {
+	content:"";
+	margin-right: 7px;
+	position: relative;
+	top: 1px;
+	@include background-image("settings/btn/btn_checkbox.png"); }
+label.checked:before,
+input[type="checkbox"]:checked + label:before { @include background-image("settings/btn/btn_checkbox_checked.png"); }
+input[type="checkbox"] + label:first-child { text-indent: 0; }
+
+/* checkbox styling */
+input[type="radio"] { display: none; }
+input[type="radio"] + label:before {
+	content:"";
+	margin-right: 7px;
+	position: relative;
+	top: 1px;
+	@include background-image("settings/btn/btn_radio.png"); }
+label.checked:before,
+input[type="radio"]:checked + label:before { @include background-image("settings/btn/btn_radio_checked.png"); }
+input[type="radio"] + label:first-child { text-indent: 0; }

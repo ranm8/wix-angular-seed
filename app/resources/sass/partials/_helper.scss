@@ -1,0 +1,38 @@
+@import "compass/css3";
+@import "partials/background-image.scss";
+@import "partials/inline-align.scss";
+@import "partials/inline-block.scss";
+@import "partials/rotate-element.scss";
+@import "partials/flexible-box-old.scss";
+@import "partials/opacity.scss";
+@import "partials/tooltip-bubble.scss";
+@import "partials/layout-shape.scss";
+
+// *********
+// Variables
+// *********
+
+// general variables
+$bg_default: #1890f6;
+$bg_active: #404040;
+$bg_bright: #fff;
+$txt_bright: #fff;
+$txt_dark: #444;
+
+// ******
+// Mixins
+// ******
+
+@mixin ui-slider($z-index) {
+	height: 8px;
+	margin-top: 1px;
+	position: absolute;
+	z-index: $z-index; }
+
+@mixin audio_buttons {
+	display: inline-block;
+	position: relative;
+	top: 4px;
+	height: 16px;
+	width: 16px;
+	color: transparent; }

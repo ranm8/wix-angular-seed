@@ -1,0 +1,13 @@
+// # ------------------- SNIP -------------------
+// snippet inline-align
+// @include inline-align( ${1:height}, ${2:text-align} );
+// endsnippet
+// # ------------------- SNAP -------------------
+
+@mixin inline-align($v_align, $horizontal: auto) {
+	height: $v_align;
+	line-height: $v_align;
+	@if $horizontal != auto {
+	text-align: $horizontal;
+	}
+}

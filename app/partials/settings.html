@@ -1,0 +1,123 @@
+<div id="settings_popup" class="clearfix" xmlns="http://www.w3.org/1999/html">
+    <!-- connect account -->
+    <div class="box_style top_section inline_block">
+        <a target="_blank" href="https://www.google.com/adsense" id="logo">
+            <img src="images/settings/logo.png" alt="Google AdSense">
+        </a>
+
+        <div class="connect">
+            <p class="description">You can earn revenue by showing relevant and engaging ads along-side your online
+                content. Just connect your Google AdSense account.</p>
+
+            <p>Your ad will be active up to 24 hours after you save the settings for your ad.</p>
+            <a class="connect_button action_links">Connect Account</a>
+
+            <p class="create_account">Don't have a Google account?
+                <a target="_blank" href="https://www.google.com/adsense">Create one</a>
+        </div>
+    </div>
+
+    <!-- accordion -->
+    <div data-ui-accordion data-ui-height-style="auto" data-ui-header="div > h2">
+        <!-- contents settings -->
+        <div class="box_style clearfix settings_layout">
+            <h2 class="box_title">Contents</h2>
+            <div>
+                <ul class="types">
+                    <li>
+                        <input data-ng-model="user.content" type="radio" value="text" name="BannerType" id="TypeText"/>
+                        <label for="TypeText">Text</label>
+                        <img src="images/settings/ge/ge_type_text.png" alt="">
+                    </li>
+                    <li>
+                        <input data-ng-model="user.content" type="radio" value="image" name="BannerType" id="TypeImage"/>
+                        <label for="TypeImage">Image</label>
+                        <img src="images/settings/ge/ge_type_image.png" alt="">
+                    </li>
+                    <li>
+                        <input data-ng-model="user.content" type="radio" value="text_image" name="BannerType" id="TypeBoth"/>
+                        <label for="TypeBoth">Text & Image</label>
+                        <img src="images/settings/ge/ge_type_text_image.png" alt="">
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- layout settings -->
+        <div class="box_style clearfix settings_layout">
+            <h2 class="box_title">Layout</h2>
+            <div>
+                <ul class="layouts">
+                    <li class="rectangle">
+                        <input data-ng-model="user.size" type="radio" value="size_300_250" name="BannerLayout" id="StyleRect"/>
+                        <label for="StyleRect">Square</label>
+                    </li>
+                    <li class="scraper">
+                        <input data-ng-model="user.size" type="radio" value="size_120_600" name="BannerLayout" id="LayoutScraper"/>
+                        <label for="LayoutScraper">Tall</label>
+                    </li>
+                    <li class="banner">
+                        <input data-ng-model="user.size" type="radio" value="size_468_60" name="BannerLayout" id="LayoutBanner"/>
+                        <label for="LayoutBanner">Wide</label>
+                    </li>
+                </ul>
+                <div class="cornder_radius">
+                    <h3>Corner style</h3>
+                    <div class="radiuses">
+                        <input data-ng-model="user.corner" type="radio" value="square" id="Square" />
+                        <label class="straight" for="Square">Square</label>
+
+                        <input data-ng-model="user.corner" type="radio" value="slightly_rounded" id="Rounded" />
+                        <label class="slight" for="Rounded">Rounded</label>
+
+                        <input data-ng-model="user.corner" type="radio" value="very_rounded" id="VeryRounded" />
+                        <label class="round" for="VeryRounded">Very Rounded</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- style settings -->
+        <div class="box_style clearfix">
+            <h2 class="box_title">Style</h2>
+            <div>
+                <div>
+                    <ul>
+                        <li class="style_setting">
+                            <label for="font-type">Font</label>
+                            <select style="width: 100px;" data-ui-chosen data-ng-model="user.fontFamily" id="font-type"></select>
+
+                            <label for="font-size">Size</label>
+                            <select style="width: 100px;" data-ui-chosen data-ng-model="user.fontSize" id="font-size"></select>
+                        </li>
+                        <li class="style_setting">
+                            <label class="colorPicker_label" for="title-color">Title color</label>
+                            <input data-ng-model="user.titleColor" type="text" id="title-color" data-ui-colorpicker />
+                        </li>
+                        <li class="style_setting">
+                            <label class="colorPicker_label" for="url-color">URL color</label>
+                            <input data-ng-model="user.urlColor" type="text" id="url-color" data-ui-colorpicker />
+                        </li>
+                        <li class="style_setting">
+                            <div class="color">
+                                <label class="colorPicker_label" for="border-color">Border color</label>
+                                <input data-ng-model="user.borderColor" type="text" id="border-color" data-ui-colorpicker />
+                            </div>
+                        </li>
+                        <li class="style_setting">
+                            <div class="color">
+                                <label class="colorPicker_label" for="background-color">Background color</label>
+                                <input data-ng-model="user.backgroundColor" type="text" id="background-color" data-ui-colorpicker />
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- loader -->
+    <div class="ajax-loader" data-ui-loader>
+        <img src="images/loader.gif" width="20" height="20" alt="loader"/>
+    </div>
+</div>

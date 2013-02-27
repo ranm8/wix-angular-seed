@@ -1,0 +1,26 @@
+// # ------------------- SNIP -------------------
+// snippet inline-block
+// @include inline-block(${1:width}, ${2:height}, ${3:text-align}, ${4:vertical-align});
+// endsnippet
+// # ------------------- SNAP -------------------
+
+@mixin inline-block($width: auto, $height: auto, $h_align: auto, $v_align: auto, $line_height: auto) {
+	display: inline-block;
+
+	@if $v_align and $v_align != auto {
+		vertical-align: $v_align; }
+	@if $h_align and $h_align != auto {
+		text-align: $h_align; }
+	@if $height and $height != auto {
+		height: $height; }
+	@if $width and $width != auto {
+		width: $width; }
+	@if $line_height and $line_height != auto {
+		line-height: $line_height; }
+	@if $legacy-support-for-ie == "true" {
+		*vertical-align: auto;
+		zoom: 1;
+		*display: inline; }
+	@if $legacy-support-for-mozilla == "true" {
+		display: -moz-inline-stack; }
+}

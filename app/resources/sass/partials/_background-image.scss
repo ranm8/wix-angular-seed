@@ -1,0 +1,12 @@
+// # ------------------- SNIP -------------------
+// snippet background-image
+// @include background-image ( ${1:image-path}, ${2:transparent}, ${3:top left}, ${4:no-repea});
+// endsnippet
+// # ------------------- SNAP -------------------
+
+@mixin background-image($image_path, $image_bgColor: transparent, $image_position: top left, $image_repeat: no-repeat) {
+	background: $image_bgColor inline-image("../images/" + $image_path) $image_position $image_repeat;
+	height: image-height($image_path);
+	width: image-width($image_path);
+	display: inline-block;
+	}

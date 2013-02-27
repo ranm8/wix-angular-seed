@@ -1,0 +1,10 @@
+// # ------------------- SNIP -------------------
+// snippet opacity
+// @include opacity(${1:alpha-0-100-range});
+// endsnippet
+// # ------------------- SNAP -------------------
+
+@mixin opacity($opacity) {
+	opacity: $opacity * 0.01;
+	filter: alpha(opacity=#{$opacity}); // IE 5-9+
+	}
