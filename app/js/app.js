@@ -1,6 +1,5 @@
 /**
- * Ronen Amiel <ronena@codeoasis.com>
- * 2/6/13, 6:27 PM
+ * @TODO write file description
  */
 (function(window) {
     'use strict';
