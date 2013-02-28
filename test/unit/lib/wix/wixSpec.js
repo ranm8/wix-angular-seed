@@ -76,7 +76,7 @@
                 };
 
                 module(function(routerProvider) {
-                    routerProvider.route('path', {
+                    routerProvider.endpoint('path', {
                         url: 'path/to/:test'
                     });
                 });
