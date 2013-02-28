@@ -5,6 +5,7 @@
 // # ------------------- SNAP -------------------
 
 @mixin opacity($opacity) {
-	opacity: $opacity * 0.01;
-	filter: alpha(opacity=#{$opacity}); // IE 5-9+
-	}
+  opacity: $opacity * 0.01;
+  filter: alpha(opacity = #{$opacity});
+// IE 5-9+
+}

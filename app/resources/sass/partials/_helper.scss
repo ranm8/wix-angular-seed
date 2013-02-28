@@ -24,15 +24,17 @@ $txt_dark: #444;
 // ******
 
 @mixin ui-slider($z-index) {
-	height: 8px;
-	margin-top: 1px;
-	position: absolute;
-	z-index: $z-index; }
+  height: 8px;
+  margin-top: 1px;
+  position: absolute;
+  z-index: $z-index;
+}
 
 @mixin audio_buttons {
-	display: inline-block;
-	position: relative;
-	top: 4px;
-	height: 16px;
-	width: 16px;
-	color: transparent; }
+  display: inline-block;
+  position: relative;
+  top: 4px;
+  height: 16px;
+  width: 16px;
+  color: transparent;
+}

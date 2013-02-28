@@ -1,149 +1,399 @@
 /* ============================================================================= */
 /* HTML5 display definitions */
 /* ============================================================================= */
-	article, aside, details, figcaption, figure, footer, header, hgroup, nav, section	{ display: block; }
-	audio, canvas, video	{ display: inline-block; *display: inline; *zoom: 1; }
-	audio:not([controls]) 	{ display: none; }
-	[hidden] 				{ display: none; }
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+  display: block;
+}
+
+audio, canvas, video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+audio:not([controls]) {
+  display: none;
+}
+
+[hidden] {
+  display: none;
+}
 
 /* ============================================================================= */
 /* Base - HTML5 Boilerplate */
 /* ============================================================================= */
-	/*
-	 * 1. Correct text resizing oddly in IE6/7 when body font-size is set using em units
-	 * 2. Force vertical scrollbar in non-IE
-	 * 3. Prevent iOS text size adjust on device orientation change, without disabling user zoom: h5bp.com/g
-	 */
-	html 									{ font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
-	body 									{ margin: 0; font-size: 13px; line-height: 1.231; }
-	body, button, input, select, textarea 	{ font-family: sans-serif; color: #222; }
+/*
+ * 1. Correct text resizing oddly in IE6/7 when body font-size is set using em units
+ * 2. Force vertical scrollbar in non-IE
+ * 3. Prevent iOS text size adjust on device orientation change, without disabling user zoom: h5bp.com/g
+ */
+html {
+  font-size: 100%;
+  overflow-y: scroll;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
 
-	/*
-	 * Remove text-shadow in selection highlight: h5bp.com/i
-	 * These selection declarations have to be separate
-	 * Also: hot pink! (or customize the background color to match your design)
-	 */
-	::-moz-selection 		{ background: #fe57a1; color: #fff; text-shadow: none; }
-	::selection 			{ background: #fe57a1; color: #fff; text-shadow: none; }
+body {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.231;
+}
+
+body, button, input, select, textarea {
+  font-family: sans-serif;
+  color: #222;
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection declarations have to be separate
+ * Also: hot pink! (or customize the background color to match your design)
+ */
+::-moz-selection {
+  background: #fe57a1;
+  color: #fff;
+  text-shadow: none;
+}
+
+::selection {
+  background: #fe57a1;
+  color: #fff;
+  text-shadow: none;
+}
 
 /* ============================================================================= */
 /* Forms - Baseline framework and HTML5 boilerplate */
 /* ============================================================================= */
-	form							{ overflow: auto; margin: 0; }
-	fieldset 						{ border: 0; margin: 0; padding: 0; }
-	legend							{ border: 0; *margin-left: -7px; padding: 0;}
-	label							{ display: block; cursor: pointer;}
-	button, input, select, textarea { font-size: 100%; margin: 0; vertical-align: baseline; *vertical-align: middle; }
-	button, input 					{ line-height: normal; *overflow: visible; }
-	table button, table input 		{ *overflow: auto; }
-	button::-moz-focus-inner,
-	input::-moz-focus-inner 		{ border: 0; padding: 0; }
+form {
+  overflow: auto;
+  margin: 0;
+}
 
-	input[type="text"],
-	input[type="password"],
-	input[type="select"],
-	input[type="search"]			{ width: 99%; display: block; }
-	input[type="search"]			{ -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing:
-								  content-box; box-sizing: content-box; }
-	input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
 
-	input[type="checkbox"],
-	input[type="radio"] 			{ box-sizing: border-box; }
-	input[type="radio"]				{ top: -1px; margin: 0 4px 3px 1px; }
-	input[type="checkbox"]			{ top: -2px; margin: 0 4px 3px 1px; }
-	input[type="file"]				{ margin: 0px 6px 3px 6px; }
+legend {
+  border: 0;
+  *margin-left: -7px;
+  padding: 0;
+}
 
-	input[type="submit"],
-	input[type="reset"],
-	input[type="button"]			{ cursor: pointer; -webkit-appearance: button; }
+label {
+  display: block;
+  cursor: pointer;
+}
 
-	select							{ display: block; margin: 0px; }
-	textarea						{ width: 99%; display: block; clear: left; overflow: auto; vertical-align: top; resize: vertical;}
-	input:valid, textarea:valid 	{  }
-	/* input:invalid, textarea:invalid 	{ background-color: #f0dddd; } */
+button, input, select, textarea {
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+  *vertical-align: middle;
+}
 
-	input[type="checkbox"],
-	input[type="radio"]             { box-sizing: border-box; float: left; clear: left; }
-	input[type="checkbox"] + label,
-	input[type="radio"] + label     { display: inline-block; width: auto; float: left; margin-right: 5px; }
+button, input {
+  line-height: normal;
+  *overflow: visible;
+}
+
+table button, table input {
+  *overflow: auto;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="select"],
+input[type="search"] {
+  width: 99%;
+  display: block;
+}
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+}
+
+input[type="radio"] {
+  top: -1px;
+  margin: 0 4px 3px 1px;
+}
+
+input[type="checkbox"] {
+  top: -2px;
+  margin: 0 4px 3px 1px;
+}
+
+input[type="file"] {
+  margin: 0px 6px 3px 6px;
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+
+select {
+  display: block;
+  margin: 0px;
+}
+
+textarea {
+  width: 99%;
+  display: block;
+  clear: left;
+  overflow: auto;
+  vertical-align: top;
+  resize: vertical;
+}
+
+input:valid, textarea:valid {
+}
+
+/* input:invalid, textarea:invalid 	{ background-color: #f0dddd; } */
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  float: left;
+  clear: left;
+}
+
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+  display: inline-block;
+  width: auto;
+  float: left;
+  margin-right: 5px;
+}
+
 /* ============================================================================= */
 /* Tables - Baseline framework */
 /* ============================================================================= */
-	table								{ border-collapse: collapse; border-top: solid 3px #000; position: relative; margin-top: 18px; border-spacing: 0;}
+table {
+  border-collapse: collapse;
+  border-top: solid 3px #000;
+  position: relative;
+  margin-top: 18px;
+  border-spacing: 0;
+}
 
-	td 									{ vertical-align: top; }
-	th, td								{ line-height: 18px; padding: 9px 18px 8px 0; }
-	thead th, thead td					{ padding-top: 7px; }
-	tfoot th, tfoot td					{ padding-bottom: 8px; }
-	tbody th, tbody td,
-	tfoot th, tfoot td					{ border-top: solid 1px #000; }
+td {
+  vertical-align: top;
+}
 
-	th:first-child, td:first-child		{ padding-left: 0; }
-	th:last-child, td:last-child		{ padding-right: 0; }
+th, td {
+  line-height: 18px;
+  padding: 9px 18px 8px 0;
+}
 
-	tr:nth-child(even) td				{ }
-	tbody tr:nth-child(odd) th,
-	tbody tr:nth-child(odd) td			{ background: rgba(0, 0, 0, 0.035); }
+thead th, thead td {
+  padding-top: 7px;
+}
 
-	caption								{ top: 5px; margin-bottom: 18px; }
+tfoot th, tfoot td {
+  padding-bottom: 8px;
+}
+
+tbody th, tbody td,
+tfoot th, tfoot td {
+  border-top: solid 1px #000;
+}
+
+th:first-child, td:first-child {
+  padding-left: 0;
+}
+
+th:last-child, td:last-child {
+  padding-right: 0;
+}
+
+tr:nth-child(even) td {
+}
+
+tbody tr:nth-child(odd) th,
+tbody tr:nth-child(odd) td {
+  background: rgba(0, 0, 0, 0.035);
+}
+
+caption {
+  top: 5px;
+  margin-bottom: 18px;
+}
 
 /* ============================================================================= */
 /* Typography - HTML5 Boilerplate */
 /* ============================================================================= */
-	p						{ margin: 0; }
-	h1,h2,h3,h4,h5,h6		{ font-weight: normal; margin: 0; }
-	abbr[title] 			{ border-bottom: 1px dotted; }
-	b, strong 				{ font-weight: bold; }
-	blockquote 				{ margin: 1em 40px; }
-	dfn 					{ font-style: italic; }
-	hr 						{ display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
-	ins 					{ background: #ff9; color: #000; text-decoration: none; }
-	mark 					{ background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+p {
+  margin: 0;
+}
 
-	/* Redeclare monospace font family: h5bp.com/j */
-	pre, code, kbd, samp 	{ font-family: monospace, monospace; _font-family: 'courier new', monospace; font-size: 1em; }
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  margin: 0;
+}
 
-	/* Improve readability of pre-formatted text in all browsers */
-	pre 					{ white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+abbr[title] {
+  border-bottom: 1px dotted;
+}
 
-	q 						{ quotes: none; }
-	q:before, q:after 		{ content: ""; content: none; }
-	small					{ font-size: 85%; }
+b, strong {
+  font-weight: bold;
+}
 
-	/* Position subscript and superscript content without affecting line-height: h5bp.com/k */
-	sub, sup 				{ font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
-	sup						{ top: -0.5em; }
-	sub 					{ bottom: -0.25em; }
+blockquote {
+  margin: 1em 40px;
+}
+
+dfn {
+  font-style: italic;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+ins {
+  background: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* Redeclare monospace font family: h5bp.com/j */
+pre, code, kbd, samp {
+  font-family: monospace, monospace;
+  _font-family: 'courier new', monospace;
+  font-size: 1em;
+}
+
+/* Improve readability of pre-formatted text in all browsers */
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+q {
+  quotes: none;
+}
+
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+small {
+  font-size: 85%;
+}
+
+/* Position subscript and superscript content without affecting line-height: h5bp.com/k */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
 
 /* ============================================================================= */
 /* Lists - HTML5 Boilerplate */
 /* ============================================================================= */
-	ul, ol 				    { margin: 1em 0; padding: 0 0 0 40px; }
-	nav ul, nav ol 		    { list-style: none; list-style-image: none; margin: 0; padding: 0; }
+ul, ol {
+  margin: 1em 0;
+  padding: 0 0 0 40px;
+}
+
+nav ul, nav ol {
+  list-style: none;
+  list-style-image: none;
+  margin: 0;
+  padding: 0;
+}
 
 /* ============================================================================= */
 /* Embedded content - HTML5 Boilerplate */
 /* ============================================================================= */
-	/* Improve image quality when scaled in IE7 */
-	/* Remove the gap between images and borders on image containers */
-	img 				    { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+/* Improve image quality when scaled in IE7 */
+/* Remove the gap between images and borders on image containers */
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  vertical-align: middle;
+}
 
-	/* Correct overflow not hidden in IE9 */
-	svg:not(:root) 		    { overflow: hidden; }
+/* Correct overflow not hidden in IE9 */
+svg:not(:root) {
+  overflow: hidden;
+}
 
 /* ============================================================================= */
 /* Figures - HTML5 Boilerplate */
 /* ============================================================================= */
-	figure { margin: 0; }
+figure {
+  margin: 0;
+}
 
 /* ============================================================================= */
 /* Links */
 /* ============================================================================= */
-	a					    { color: #00e; }
-	a:visited			    { color: #551a8b; }
-	a:hover 			    { color: #06e; }
-	a,
-	a:focus,
-	a:visited,
-	a:active,
-	a:hover                 { text-decoration: none; color: #7b7b7c; outline: 0; }
+a {
+  color: #00e;
+}
+
+a:visited {
+  color: #551a8b;
+}
+
+a:hover {
+  color: #06e;
+}
+
+a,
+a:focus,
+a:visited,
+a:active,
+a:hover {
+  text-decoration: none;
+  color: #7b7b7c;
+  outline: 0;
+}
