@@ -1,6 +1,6 @@
-@mixin layout-shape($width,$height) {
-	width: $width;
-	height: $height;
-	margin-left: -($width/2);
-	bottom: -#{$height + 10px};
-	}
+@mixin layout-shape($width, $height) {
+  width: $width;
+  height: $height;
+  margin-left: -($width/2);
+  bottom: -#{$height + 10px};
+}

@@ -4,64 +4,67 @@
 // endsnippet
 // # ------------------- SNAP -------------------
 
-@mixin tooltip-bubble (
-	$tooltip-size,
-	$background-color: white,
-	$border-color: transparent,
-	$border-width: 1px,
-	$position: left,
-	$location: 50%) {
+@mixin tooltip-bubble
 
-	/* variables */
-	$xy-location: $tooltip-size * 2;
-	$outer-border: $border-width * 2;
-	$outer-tooltip: $tooltip-size + $border-width;
+(
+$tooltip-size,
+$background-color: white, $border-color: transparent, $border-width: 1px, $position: left, $location: 50%)
+{
 
-	border: $border-width solid $border-color;
-	background: $background-color;
-	position: relative;
-	z-index: 1;
+/* variables */
+  $xy-location: $tooltip-size * 2;
+  $outer-border: $border-width * 2;
+  $outer-tooltip: $tooltip-size + $border-width;
 
-	&:before, &:after {
-		content:" ";
-		height: 0;
-		width: 0;
-		border: $tooltip-size solid transparent;
-		position: absolute;
-		#{$position}: -#{$xy-location};
+  border: $border-width solid $border-color;
+  background: $background-color;
+  position: relative;
+  z-index: 1;
 
-		@if $position == left {
-			top: $location;
-			margin-top: -#{$tooltip-size};
-			border-right-color: $background-color; }
-		@else if $position == right {
-			top: $location;
-			margin-top: -#{$tooltip-size};
-			border-left-color: $background-color; }
-		@else if $position == top {
-			left: $location;
-			margin-left: -#{$tooltip-size};
-			border-bottom-color: $background-color; }
-		@else if $position == bottom {
-			left: $location;
-			margin-left: -#{$tooltip-size};
-			border-top-color: $background-color; }
-	}
-	&:before {
-		border:  solid $outer-tooltip transparent;
-		#{$position}: -#{$xy-location + $outer-border};
+&:before, &:after {
+  content: " ";
+  height: 0;
+  width: 0;
+  border: $tooltip-size solid transparent;
+  position: absolute;
+  #{$position}: -#{$xy-location};
 
-		@if $position == left {
-			border-right-color: $border-color;
-			margin-top: -#{$outer-tooltip}; }
-		@else if $position == right {
-			border-left-color: $border-color;
-			margin-top: -#{$outer-tooltip}; }
-		@else if $position == top {
-			border-bottom-color: $border-color;
-			margin-left: -#{$outer-tooltip}; }
-		@else if $position == bottom {
-			border-top-color: $border-color;
-			margin-left: -#{$outer-tooltip}; }
-	}
+  @if $position == left {
+    top: $location;
+    margin-top: -#{$tooltip-size};
+    border-right-color: $background-color;
+  } @else if $position == right {
+    top: $location;
+    margin-top: -#{$tooltip-size};
+    border-left-color: $background-color;
+  } @else if $position == top {
+    left: $location;
+    margin-left: -#{$tooltip-size};
+    border-bottom-color: $background-color;
+  } @else if $position == bottom {
+    left: $location;
+    margin-left: -#{$tooltip-size};
+    border-top-color: $background-color;
+  }
+}
+
+&:before {
+  border: solid $outer-tooltip transparent;
+  #{$position}: -#{$xy-location + $outer-border};
+
+  @if $position == left {
+    border-right-color: $border-color;
+    margin-top: -#{$outer-tooltip};
+  } @else if $position == right {
+    border-left-color: $border-color;
+    margin-top: -#{$outer-tooltip};
+  } @else if $position == top {
+    border-bottom-color: $border-color;
+    margin-left: -#{$outer-tooltip};
+  } @else if $position == bottom {
+    border-top-color: $border-color;
+    margin-left: -#{$outer-tooltip};
+  }
+}
+
 }

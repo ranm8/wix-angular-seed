@@ -5,8 +5,8 @@
 // # ------------------- SNAP -------------------
 
 @mixin background-image($image_path, $image_bgColor: transparent, $image_position: top left, $image_repeat: no-repeat) {
-	background: $image_bgColor inline-image("../images/" + $image_path) $image_position $image_repeat;
-	height: image-height($image_path);
-	width: image-width($image_path);
-	display: inline-block;
-	}
+  background: $image_bgColor inline-image("../images/" + $image_path) $image_position $image_repeat;
+  height: image-height($image_path);
+  width: image-width($image_path);
+  display: inline-block;
+}
