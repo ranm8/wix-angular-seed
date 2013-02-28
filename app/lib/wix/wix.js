@@ -133,21 +133,21 @@
          * @example
          */
         .provider('router', function() {
-            var routes = {},
+            var endpoints = {},
                 providerUrlTransformers;
 
             /**
-             * @name Wix.routerProvider#route
+             * @name Wix.routerProvider#endpoint
              * @methodOf Wix.routerProvider
              * @description
-             * Adds a new route to the backend routing.
-             * @param route The name of the route as a way to reference to it
-             * @param options An options objects for that route. Currently the only supported option is url. It should
-             * be the URL this route should point to.
+             * Adds a new endpoint to the backend routing.
+             * @param endpoint The name of the endpoint as a way to reference to it
+             * @param options An options objects for that endpoint. Currently the only supported option is url. It should
+             * be the URL this endpoint should point to.
              * @returns {*} returns itself (chaining).
              */
-            this.route = function(route, options) {
-                routes[route] = options;
+            this.endpoint = function(endpoint, options) {
+                endpoints[endpoint] = options;
                 return this;
             };
 
@@ -184,19 +184,19 @@
                 }
 
                 /**
-                 * Generates a URL based on routes configuration.
+                 * Generates a URL based on endpoints configuration.
                  * @param {boolean} absolute Whether or not the return an absolute URL.
-                 * @param {string} route The name of the route to look for.
+                 * @param {string} endpoint The name of the endpoint to look for.
                  * @param {Object} params An object of parameters to add to the URL. If these parameters exist on the
-                 * route definition they would be put in the URL in the right place (rather than be appended to the
+                 * endpoint definition they would be put in the URL in the right place (rather than be appended to the
                  * query string).
                  * @returns {string} A URL.
                  */
-                function generate(absolute, route, params) {
-                    var url = (routes[route] || {}).url;
+                function generate(absolute, endpoint, params) {
+                    var url = (endpoints[endpoint] || {}).url;
 
                     if (url === undefined) {
-                        throw new Error('route: ' + route + ' could not be found.');
+                        throw new Error('route: ' + endpoint + ' could not be found.');
                     }
 
                     url =  handleTransformers(urlEncoder(url, params, absolute));

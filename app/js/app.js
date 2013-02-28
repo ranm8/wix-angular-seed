@@ -33,13 +33,13 @@
             $locationProvider.html5Mode(true);
 
             routerProvider
-                .route('user', {
+                .endpoint('user', {
                     url: 'data/user.json'
                 })
-                .route('hello', {
+                .endpoint('hello', {
                     url: 'data/world.json'
                 })
-                .route('world', {
+                .endpoint('world', {
                     url: 'data/hello.json'
                 });
 
