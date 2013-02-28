@@ -15,14 +15,6 @@
          */
         $scope.user = user;
 
-        sdk.Settings.getSiteInfo(function(info) {
-            console.log(info);
-        });
-
-        sdk.Settings.getSiteInfo().then(function(info) {
-            console.log(info);
-        });
-
         /**
          * Watching the user model and making a call to our backend whenever it changes.
          */
