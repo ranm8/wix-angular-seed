@@ -57,7 +57,7 @@
                  * @returns {Function} A new function that returns a deferred.
                  */
                 function defer(func) {
-                    var f = function(callback) {
+                    var transformedFunction = function(callback) {
                         var deferred = $q.defer();
 
                         func(function() {
@@ -75,7 +75,7 @@
                         return deferred.promise;
                     };
 
-                    return f;
+                    return transformedFunction;
                 }
 
                 /**
