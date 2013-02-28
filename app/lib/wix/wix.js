@@ -32,20 +32,79 @@
          * has.
          */
         .provider('sdk', function () {
-            this.$get = ['$window', function ($window) {
+            this.$get = ['$window', '$rootScope', '$q', function ($window, $rootScope, $q) {
                 var wix = $window.Wix,
-                    sdk = window.angular.extend(wix);
+                    sdk = window.angular.extend({}, wix);
+
+                if (!wix) {
+                    return;
+                }
 
                 /**
                  * Refreshes the single application instance that's related to this settings page.
                  * @returns {*} The settings object itself (chaining).
                  */
-                ((sdk || {}).Settings || {}).refreshCurrentApp = function () {
+                sdk.Settings.refreshCurrentApp = function () {
                     var compId = wix.Utils.getOrigCompId();
                     wix.Settings.refreshAppByCompIds([compId]);
 
                     return this;
                 };
+
+                /**
+                 * Takes a function and returns a new function that performs the operation of the provided function and
+                 * returns a deferred. It also runs a callback for convenience.
+                 * @param func An asynchronous function to return a deferred for.
+                 * @returns {Function} A new function that returns a deferred.
+                 */
+                function defer(func) {
+                    var f = function(callback) {
+                        var deferred = $q.defer();
+
+                        func(function() {
+                            var args = Array.prototype.slice.apply(arguments);
+
+                            $rootScope.$apply(function() {
+                                deferred.resolve.apply(deferred, args);
+                            });
+                        });
+
+                        if (window.angular.isFunction(callback)) {
+                            deferred.promise.then(callback);
+                        }
+
+                        return deferred.promise;
+                    };
+
+                    return f;
+                }
+
+                /**
+                 * Works just like wix's regular method, but returns a deferred for convenience. A callback can still
+                 * be passed to it.
+                 * @param {function} callback A callback to run when the information has been fetched. That callback
+                 * will receive the information as it's first parameter.
+                 * @returns {promise}
+                 */
+                sdk.getSiteInfo = sdk.Settings.getSiteInfo = defer(wix.getSiteInfo);
+
+                /**
+                 * Works just like wix's regular method, but returns a deferred for convenience. A callback can still
+                 * be passed to it.
+                 * @param {function} callback A callback to run when the information has been fetched. That callback
+                 * will receive the information as it's first parameter.
+                 * @returns {promise}
+                 */
+                sdk.requestLogin = sdk.Settings.requestLogin = defer(wix.requestLogin);
+
+                /**
+                 * Works just like wix's regular method, but returns a deferred for convenience. A callback can still
+                 * be passed to it.
+                 * @param {function} callback A callback to run when the information has been fetched. That callback
+                 * will receive the information as it's first parameter.
+                 * @returns {promise}
+                 */
+                sdk.currentMember = sdk.Settings.currentMember = defer(wix.currentMember);
 
                 return sdk;
             }];
