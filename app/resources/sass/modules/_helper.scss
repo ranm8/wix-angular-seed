@@ -17,6 +17,9 @@ $wixDark: #3a3a3a;
 // ******************************************************************************************************************************
 // Mixins
 // ******************************************************************************************************************************
+// ******************************************************************************************************************************
+// General buttons
+// ******************************************************************************************************************************
 @mixin wixButton($color) {
   $shadedColor: shade($color,15%);
   $txtColor: $wixWhite;
@@ -44,6 +47,27 @@ $wixDark: #3a3a3a;
 }
 .btn_blue { @include wixButton(#00a5ff); }
 .btn_white { @include wixButton(#f6f6f6); }
+
+// ******************************************************************************************************************************
+// Radio buttons and Checkboxes
+// ******************************************************************************************************************************
+@mixin wixCheckable($type) {
+  $imagePath: "settings/btn/btn_radio.png";
+  @if $type == "checkbox" {
+    $imagePath: "settings/btn/btn_checkbox.png"; }
+  display: none;
+
+  & + label:before {
+    @include background-image($imagePath);
+    height: image-height($imagePath) / 2;
+    content:"";
+    margin-right: 7px;
+    position: relative;
+    top: 1px; }
+  &:checked + label:before { background-position: -#{image-height($imagePath) / 2}; }
+}
+input[type="checkbox"] { @include wixCheckable("checkbox"); }
+input[type="radio"] { @include wixCheckable("radio"); }
 
 // ******************************************************************************************************************************
 // Nuggets of gold

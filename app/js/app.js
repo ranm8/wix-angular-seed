@@ -16,6 +16,9 @@
                 .when('/', {
                     templateUrl: 'partials/welcome.html'
                 })
+                .when('/test', {
+                  templateUrl: 'partials/test.html'
+                })
                 .when('/settings', {
                     controller: window.SettingsCtrl,
                     resolve: window.SettingsCtrl.resolve,
