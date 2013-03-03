@@ -21,7 +21,7 @@ $wixDark: #3a3a3a;
   $shadedColor: shade($color,15%);
   $txtColor: $wixWhite;
   $borderColor: shade($wixGray,15%);
-  @if lightness($color) > 50% {
+  @if lightness($color) >= 60% {
     $txtColor: $wixDark;
     $borderColor: $wixGray;
   }
@@ -41,7 +41,9 @@ $wixDark: #3a3a3a;
     @include box-shadow(0 2px 1px #aaa inset); }
 }
 .btn_blue { @include wixButton(#00a5ff); }
-.btn_white { @include wixButton(#f6f6f6); }
+.btn_white { @include wixButton(gray); }
+
+.class {}
 
 // ******************************************************************************************************************************
 // Nuggets of gold
