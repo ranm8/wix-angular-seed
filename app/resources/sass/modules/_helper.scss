@@ -15,9 +15,6 @@ $wixGray: #c5c5c5;
 $wixDark: #3a3a3a;
 
 // ******************************************************************************************************************************
-// Mixins
-// ******************************************************************************************************************************
-// ******************************************************************************************************************************
 // General buttons
 // ******************************************************************************************************************************
 @mixin wixButton($color) {
@@ -64,10 +61,10 @@ $wixDark: #3a3a3a;
     margin-right: 7px;
     position: relative;
     top: 1px; }
-  &:checked + label:before { background-position: -#{image-height($imagePath) / 2}; }
+  &:checked + label:before { background-position: 0 -#{image-height($imagePath) / 2}; }
 }
-input[type="checkbox"] { @include wixCheckable("checkbox"); }
-input[type="radio"] { @include wixCheckable("radio"); }
+.wix_checkbox { @include wixCheckable("checkbox"); }
+.wix_radio { @include wixCheckable("radio"); }
 
 // ******************************************************************************************************************************
 // Nuggets of gold
