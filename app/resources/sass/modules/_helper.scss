@@ -21,6 +21,7 @@ $wixDark: #3a3a3a;
   $shadedColor: shade($color,15%);
   $txtColor: $wixWhite;
   $borderColor: shade($wixGray,15%);
+
   @if lightness($color) >= 60% {
     $txtColor: $wixDark;
     $borderColor: $wixGray;
@@ -35,15 +36,14 @@ $wixDark: #3a3a3a;
   color: $txtColor;
 
   &:hover {
-    @include box-shadow(1px 2px 2px #aaa);
+    @include box-shadow(1px 2px 2px $borderColor);
     color: $txtColor; }
-  &:active {
-    @include box-shadow(0 2px 1px #aaa inset); }
+  &:focus, &:active {
+    @include box-shadow(1px 1px 1px $borderColor inset);
+    color: $txtColor; }
 }
 .btn_blue { @include wixButton(#00a5ff); }
-.btn_white { @include wixButton(gray); }
-
-.class {}
+.btn_white { @include wixButton(#f6f6f6); }
 
 // ******************************************************************************************************************************
 // Nuggets of gold
