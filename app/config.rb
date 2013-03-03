@@ -11,8 +11,7 @@ fonts_dir = "resources/fonts"
 preferred_syntax = :scss
 sprite_engine = :oily_png
 project_type = :stand_alone
-environment = :development
-output_style = :compressed
+output_style = :nested
 #line_comments = false
 #sass_options = {:debug_info => true}
 

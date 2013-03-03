@@ -151,11 +151,8 @@
 /* ============================================================================= */
 /* Links */
 /* ============================================================================= */
-	a                     { color: #00e; }
-	a:visited             { color: #551a8b; }
-	a:hover               { color: #06e; }
 	a,
 	a:focus,
 	a:visited,
 	a:active,
-	a:hover               { text-decoration: none; color: #7b7b7c; outline: 0; }
+	a:hover               { text-decoration: none; outline: 0; }

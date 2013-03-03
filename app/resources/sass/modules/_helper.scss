@@ -9,10 +9,39 @@
 // ******************************************************************************************************************************
 // Variables
 // ******************************************************************************************************************************
+$wixBlue: #0099ff;
+$wixWhite: #f6f6f6;
+$wixGray: #c5c5c5;
+$wixDark: #3a3a3a;
 
 // ******************************************************************************************************************************
 // Mixins
 // ******************************************************************************************************************************
+@mixin wixButton($color) {
+  $shadedColor: shade($color,15%);
+  $txtColor: $wixWhite;
+  $borderColor: shade($wixGray,15%);
+  @if lightness($color) > 50% {
+    $txtColor: $wixDark;
+    $borderColor: $wixGray;
+  }
+
+  @include border-radius(4px);
+  @include background($color linear-gradient($color 30%,$shadedColor 70%));
+
+  padding: 5px 10px;
+  display: inline-block;
+  border: 1px solid $borderColor;
+  color: $txtColor;
+
+  &:hover {
+    @include box-shadow(1px 2px 2px #aaa);
+    color: $txtColor; }
+  &:active {
+    @include box-shadow(0 2px 1px #aaa inset); }
+}
+.btn_blue { @include wixButton(#00a5ff); }
+.btn_white { @include wixButton(#f6f6f6); }
 
 // ******************************************************************************************************************************
 // Nuggets of gold
@@ -28,18 +57,6 @@
 // ******************************************************************************************************************************
 // Site specific nuggets of gold
 // ******************************************************************************************************************************
-.action_links {
-	@include border-radius(4px);
-	background: #45a1d2;
-	@include background(linear-gradient(#45a1d2 50%,#338fbe 50%));
-	@include inline-align(29px, center);
-	color: #fff !important;
-	padding: 0 10px;
-	border: 1px solid #c4c4c4;
-	display: inline-block;
-	&:hover { @include box-shadow(1px 2px 2px #aaa); }
-	&:active { @include box-shadow(0 2px 1px #aaa inset); } }
-
 input[type="text"] {
 	@include inline-align(30px);
 	border: 1px solid #ccc;
