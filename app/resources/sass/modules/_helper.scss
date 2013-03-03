@@ -77,8 +77,8 @@ $wixDark: #3a3a3a;
   border: none;
   position: relative;
 
-  &:hover { background-position: 0 -#{image-height($imagePath) / 3}; }
-  &:active { background-position: 0 -#{image-height($imagePath) / 3 * 2}; }
+  &:hover { background-position: 0 -#{image-height($imagePath) / 3 + 1}; }
+  &:active { background-position: 0 -#{image-height($imagePath) / 3 * 2 + 1}; }
   &:before {
     @include inline-block(28px,16px,auto,auto,auto);
     content:"";
