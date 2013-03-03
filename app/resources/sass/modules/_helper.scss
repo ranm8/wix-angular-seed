@@ -3,7 +3,6 @@
 // ******************************************************************************************************************************
 @import "compass/css3";
 @import "partials/background-image.scss";
-@import "partials/inline-align.scss";
 @import "partials/inline-block.scss";
 
 // ******************************************************************************************************************************
@@ -65,25 +64,3 @@ $wixDark: #3a3a3a;
 }
 .wix_checkbox { @include wixCheckable("checkbox"); }
 .wix_radio { @include wixCheckable("radio"); }
-
-// ******************************************************************************************************************************
-// Nuggets of gold
-// ******************************************************************************************************************************
-/*clearfix*/
-.clearfix { *zoom: 1; }
-.clearfix:before,
-.clearfix:after {
-	content: "";
-	display: table; }
-.clearfix:after { clear: both; }
-
-// ******************************************************************************************************************************
-// Site specific nuggets of gold
-// ******************************************************************************************************************************
-input[type="text"] {
-	@include inline-align(30px);
-	border: 1px solid #ccc;
-	@include border-radius(3px);
-	@include box-sizing("border-box");
-	padding: 0 10px;
-	color: #b2b2b2;	}
