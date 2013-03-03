@@ -64,3 +64,30 @@ $wixDark: #3a3a3a;
 }
 .wix_checkbox { @include wixCheckable("checkbox"); }
 .wix_radio { @include wixCheckable("radio"); }
+
+// ******************************************************************************************************************************
+// Color Picker
+// ******************************************************************************************************************************
+@mixin colorPicker {
+  $imagePath: "settings/btn/btn_colorpicker.png";
+  @include background-image($imagePath);
+  height: image-height($imagePath) / 3;
+
+  vertical-align: middle;
+  border: none;
+  position: relative;
+
+  &:hover { background-position: 0 -#{image-height($imagePath) / 3}; }
+  &:active { background-position: 0 -#{image-height($imagePath) / 3 * 2}; }
+  &:before {
+    content:"";
+    position: absolute;
+    display: block;
+    width: 28px;
+    height: 16px;
+    background: black;
+    top: 5px;
+    left: 5px;
+    z-index: -1; };
+}
+div.colorPicker-picker { @include colorPicker; }
