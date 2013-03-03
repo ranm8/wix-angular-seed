@@ -1,0 +1,11 @@
+# folders
+files/
+css/
+static/
+.sass-cache/
+
+# files
+Guardfile
+db.ini
+index.php
+url-list.txt
