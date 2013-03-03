@@ -51,10 +51,11 @@
                 };
 
                 /**
-                 * Takes a function and returns a new function that performs the operation of the provided function and
-                 * returns a deferred. It also runs a callback for convenience.
-                 * @param func An asynchronous function to return a deferred for.
-                 * @returns {Function} A new function that returns a deferred.
+                 * Takes an asynchronous function that accepts a callback and returns a new function that performs
+                 * exactly the same as the original function (accepts a callback too, with the same parameters), but
+                 * also returns a promise.
+                 * @param func An asynchronous function that accepts a callback.
+                 * @returns {Function} A new function.
                  */
                 function defer(func) {
                     var transformedFunction = function(callback) {
@@ -79,8 +80,17 @@
                 }
 
                 /**
-                 * Works just like wix's regular method, but returns a deferred for convenience. A callback can still
-                 * be passed to it.
+                 * Returns information about the host site in which the app is shown. The method accepts a single
+                 * callback, that when called, will get an object with the following attributes:
+                 *
+                     siteTitle: the title of the site that is used for SEO.
+                     pageTitle: the site current page title that is used for SEO
+                     siteDescription: the description of the site that is used for SEO
+                     siteKeywords: the keywords which were related to the site and are used for SEO
+                     referrer: the referrer header of the http request
+                     url: the full url taken from the location.href, include internal site state
+                     baseUrl: base url of the current site
+                 *
                  * @param {function} callback A callback to run when the information has been fetched. That callback
                  * will receive the information as it's first parameter.
                  * @returns {promise}
@@ -88,8 +98,20 @@
                 sdk.getSiteInfo = sdk.Settings.getSiteInfo = defer(wix.getSiteInfo);
 
                 /**
-                 * Works just like wix's regular method, but returns a deferred for convenience. A callback can still
-                 * be passed to it.
+                 * The request login method requests the current user of the wix site to login or register (i.e. the user
+                 * of site, not the owner of the site in the editor). After a successful login, the Wix site will
+                 * reload including the app iframe and the new signed-instance parameter will contain the details of
+                 * the logged in user.
+                 *
+                 * The method has an affect only for a published site. If called in the Wix editor, the method has no
+                 * affect.
+                 *
+                 * The method accepts a single callback (since 1.6.0), that when called, will get an object with the
+                 * following attributes:
+                 *
+                     authResponse: is the user authenticated or not	true / false
+                     data: member data
+                 *
                  * @param {function} callback A callback to run when the information has been fetched. That callback
                  * will receive the information as it's first parameter.
                  * @returns {promise}
@@ -97,8 +119,8 @@
                 sdk.requestLogin = sdk.Settings.requestLogin = defer(wix.requestLogin);
 
                 /**
-                 * Works just like wix's regular method, but returns a deferred for convenience. A callback can still
-                 * be passed to it.
+                 * Accepts a single callback that when called, will be initiated with the current logged-in member
+                 * data.
                  * @param {function} callback A callback to run when the information has been fetched. That callback
                  * will receive the information as it's first parameter.
                  * @returns {promise}
@@ -189,6 +211,30 @@
          * Generates routes to a backend from a predefined list of routes that can be defined during the config() phase.
          *
          * @example
+           This example shows how to define a list of backend endpoints during the config() phase and generating URLs
+           to the backend in an application.
+
+             window.angular.module('Base', [])
+                .config(['routerProvider', function(routerProvider) {
+                    routerProvider
+                        .endpoint('user', {
+                            url: 'data/user.json'
+                        })
+                        .endpoint('hello', {
+                            url: 'data/world.json'
+                        })
+                        .endpoint('world', {
+                            url: 'data/hello.json'
+                        });
+                }])
+                .run(['router', function(router) {
+                    router.path('hello'); // === 'data/world.json'
+                }]);
+}(window));
+
+
+
+
          */
         .provider('router', function() {
             var endpoints = {},
