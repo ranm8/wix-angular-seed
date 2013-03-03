@@ -80,14 +80,12 @@ $wixDark: #3a3a3a;
   &:hover { background-position: 0 -#{image-height($imagePath) / 3}; }
   &:active { background-position: 0 -#{image-height($imagePath) / 3 * 2}; }
   &:before {
+    @include inline-block(28px,16px,auto,auto,auto);
     content:"";
     position: absolute;
-    display: block;
-    width: 28px;
-    height: 16px;
-    background: black;
     top: 5px;
     left: 5px;
-    z-index: -1; };
+    z-index: -1;
+    background: black; }
 }
 div.colorPicker-picker { @include colorPicker; }
