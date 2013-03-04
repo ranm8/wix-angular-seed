@@ -17,7 +17,7 @@
                     templateUrl: 'partials/welcome.html'
                 })
                 .when('/demo', {
-                  templateUrl: 'partials/demo.html'
+                    templateUrl: 'partials/demo.html'
                 })
                 .when('/settings', {
                     controller: window.SettingsCtrl,

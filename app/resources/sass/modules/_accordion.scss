@@ -2,7 +2,7 @@ p { line-height: 1.2; color: #000; }
 a:visited,
 a:hover,
 a:active,
-a { color: $color_wixBlue; }
+a { color: $wixBlue; }
 ul { list-style: none; padding: 0; margin: 0; }
 
 /* ************** */
@@ -18,7 +18,7 @@ ul { list-style: none; padding: 0; margin: 0; }
   cursor: pointer;
   margin-bottom: 10px;
   position: relative;
-    color: $color_wixBlue;
+    color: $wixBlue;
   &.ui-state-active {
       color: black;
       &:before { @include background-image("settings/ge/ge_arrow_active.png"); }
@@ -32,7 +32,7 @@ ul { list-style: none; padding: 0; margin: 0; }
   @include background-image("settings/ge/ge_arrow_hover.png"); } }
 
 .style_setting {
-    border-top: 1px solid $border_color;
+    border-top: 1px solid $wixGray;
     height: 51px;
     line-height: 51px;
   & > div { @include inline-block(55%,auto,auto,middle,auto); }
@@ -41,11 +41,11 @@ ul { list-style: none; padding: 0; margin: 0; }
     line-height: 51px;
     display: inline-block;
     float: none !important;
-    color: $color_darkGrey; }
+    color: $wixDark; }
   label:first-child {
     width: 180px;
     text-indent: 20px;
-    color: $color_darkGrey; }
+    color: $wixDark; }
   label[for="shadow"] {
     margin-top: 15px;
     text-indent: 20px; }
