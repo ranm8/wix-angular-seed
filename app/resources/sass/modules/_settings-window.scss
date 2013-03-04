@@ -4,7 +4,7 @@ $padding: 20px;
   @include box-sizing("border-box");
   background: $wixBright;
   width: 620px;
-  padding: 15px 20px;
+  padding: $padding;
   position: relative;
 }
 .box_style {
