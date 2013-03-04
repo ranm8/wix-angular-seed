@@ -33,7 +33,7 @@
         </a>
       </div>
 
-      <!-- connect box -->
+      <!-- Connect box -->
       <div data-ng-hide="connected()" class="connect">
         <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent auctor accumsan hendrerit. Nulla dictum dignissim iaculis. Mauris in eros diam. Duis auctor rhoncus massa at commodo.</p>
         <a class="btn-blue bottom-right">Connect Account</a>
@@ -42,25 +42,62 @@
 
     </div>
 
-    <div class="accordion-window" data-ui-accordion data-ui-height-style="fill" data-ui-header="div > h2">
+    <!-- Settings accordion -->
+    <div class="accordion-window" data-ui-accordion data-ui-height-style="auto" data-ui-header="div > h2">
+
+      <!-- Accordion pane -->
+      <div class="accordion-pane">
+        <h2 class="accordion-header">Contents</h2>
+        <div class="accordion-content">
+          <ul class="settings-list">
+            <li class="settings-option">
+              <label for="font-type">Font</label>
+              <select style="width: 100px;" data-ui-chosen data-ng-model="user.fontFamily" id="font-type"></select>
+            </li>
+            <li class="settings-option">
+              <label for="font-size">Size</label>
+              <select style="width: 100px;" data-ui-chosen data-ng-model="user.fontSize" id="font-size"></select>
+            </li>
+            <li class="settings-option">
+              <label class="colorPicker-label" for="title-color">Title color</label>
+              <div class="colorPicker-picker"></div>
+            </li>
+            <li class="settings-option">
+              <label class="colorPicker-label" for="text-color">Text color</label>
+              <div class="colorPicker-picker"></div>
+            </li>
+            <li class="settings-option full-width">
+              <label class="colorPicker-label" for="url-color">URL color</label>
+              <div class="colorPicker-picker"></div>
+            </li>
+            <li class="settings-option full-width">
+              <label class="colorPicker-label" for="border-color">Border color</label>
+              <div class="colorPicker-picker"></div>
+            </li>
+            <li class="settings-option full-width">
+              <label class="colorPicker-label" for="background-color">Background color</label>
+              <div class="colorPicker-picker"></div>
+            </li>
+        </ul>
+        </div>
+      </div>
+
+      <!-- Accordion pane -->
       <div class="accordion-pane">
         <h2 class="accordion-header">Contents</h2>
         <div class="accordion-content">
 
         </div>
       </div>
+
+      <!-- Accordion pane -->
       <div class="accordion-pane">
         <h2 class="accordion-header">Contents</h2>
         <div class="accordion-content">
 
         </div>
       </div>
-      <div class="accordion-pane">
-        <h2 class="accordion-header">Contents</h2>
-        <div class="accordion-content">
 
-        </div>
-      </div>
     </div>
 
   </div>
