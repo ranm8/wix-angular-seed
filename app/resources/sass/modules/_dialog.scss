@@ -1,0 +1,25 @@
+@mixin dialog-modal {
+  box-shadow: 0 0 8px #bbb;
+  border-radius: 10px;
+  background: #fff;
+  overflow: hidden;
+  padding: 10px;
+
+  .ui-dialog-titlebar span {
+    display: inline-block;
+    padding: 10px 0 15px 65px;
+    color: red; }
+  .ui-dialog-titlebar-close {
+    @include background-image("settings/ge/ge_close.png");
+    position: absolute;
+    right: 10px;
+    top: 10px; }
+  #dialog {
+    margin-bottom: 15px;
+    padding-left: 65px;
+    background: transparent inline-image("settings/ge/ge_exclamation.png") 10px 10px no-repeat; }
+  .ui-dialog-buttonset {
+    button { float: left; }
+    button:first-child { float: right; } }
+}
+.ui-dialog { @include dialog-modal; }
