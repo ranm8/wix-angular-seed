@@ -21,4 +21,32 @@
     <div class="colorPicker-picker"></div>
   </div>
 
+  <div class="settings-window">
+
+    <!-- Top settings pane -->
+    <div class="top_section">
+
+      <!-- App logo -->
+      <div class="logo">
+        <a target="_blank" href="#">
+          <img src="images/demo/logo.png" alt="Application Logo">
+        </a>
+      </div>
+
+      <!-- connect box -->
+      <div data-ng-hide="connected()" class="connect">
+        <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent auctor accumsan hendrerit. Nulla dictum dignissim iaculis. Mauris in eros diam. Duis auctor rhoncus massa at commodo.</p>
+        <a class="btn_blue bottom-right">Connect Account</a>
+        <p class="bottom-left">Don't have a Google account? <a target="_blank" href="#">Create one</a>
+      </div>
+      <div data-ng-show="connected()" class="connect">
+        <p class="description">You are now connected to your AdSense. </p>
+        <p class="disconnect">
+          <a class="btn_blue bottom-right" href="" data-ng-click="disconnect()">Disconnect Account</a>
+        </p>
+      </div>
+
+    </div>
+  </div>
+
 </div>

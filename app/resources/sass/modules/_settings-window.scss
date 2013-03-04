@@ -1,72 +1,58 @@
-$connect_paddingBottom: 8px;
-$connect_paddingTop: 12px;
-$connect_paddingLeft: 20px;
+$padding: 20px;
 
-#settings_popup {
+.settings-window {
   @include box-sizing("border-box");
-  width: 618px;
-  background: $wixWhite;
-  padding: 15px 19px;
+  background: $wixBright;
+  width: 620px;
+  padding: 15px 20px;
   position: relative;
-  .ajax-loader {
-    position: absolute;
-    top: 200px;
-    left: 300px; }
-  }
-    .box_style {
-        @include box-sizing("border-box");
-        border: 1px solid $wixGray;
-        border-radius: 7px;
-        background: #fff;
-        padding: 11px 11px 0;
-        margin-top: 17px;
-  }
+}
+.box_style {
+  border: 1px solid $wixGray;
+  border-radius: 8px;
+  background: #fff;
+  padding: $padding/2;
+}
+.ajax-loader {
+  position: absolute;
+  top: 200px;
+  left: 300px;
+}
 
 /* *********** */
 /* top section */
 /* *********** */
 .top_section {
-  height: 152px;
-  padding: 12px 20px;
-  margin: 0 0 20px;
-  #logo {
-    height: 100%;
-    padding: 0 20px 0 15px;
-    border-right: 1px solid #e7e7e7;
-    img { margin-top: 20px;} }
-}
+  @extend .box_style;
+  font-size: 0;
+  & > div {
+    display: inline-block;
+    height: 150px;
+    font-size: 12px; }
 
-/* connect */
-.connect {
-  position: relative;
-  height: 100%;
-  width: 430px;
-  padding: $connect_paddingTop 0 $connect_paddingBottom $connect_paddingLeft;
-  @include box-sizing("border-box");
-  p {
-    font-size: 12px;
-    margin-right: 20px;
-    color: $wixDark; }
-  p a { text-decoration: underline; }
-  p + p {
-    margin-top: 13px;
-    color: $wixGray; }
-  .choose_blog,
-  .create_account,
-  .create_blog {
-    position: absolute;
-    width: 135px;
-    color: #aaa;
-    font-size: 12px;
-    bottom: 0;
-    left: $connect_paddingLeft;
-    a { color: $wixBlue; } }
-  .disconnect, .connect_button {
-    position: absolute;
-    right: 0;
-    bottom: 0; }
-  .create_account {
-    color: $wixGray;
-    font-size: 12px;
-    width: auto; }
+  .logo {
+    border-right: 1px solid #e7e7e7;
+    padding: 0 $padding;
+    a:before {
+      content: " ";
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle; } }
+
+  .connect {
+    @include box-sizing("border-box");
+    vertical-align: top;
+    padding: $padding/2 $padding;
+    position: relative;
+    width: 440px;
+
+    .bottom-left {
+      position: absolute;
+      bottom: $padding/2;
+      left: $padding; }
+    .bottom-right {
+      position: absolute;
+      right: $padding;
+      bottom: $padding/2; }
+  }
 }
