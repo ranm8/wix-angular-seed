@@ -1,20 +1,22 @@
-.box_title {
+.accordion-window > div {
+  @extend .box-style;
+  margin: $padding 0 0; }
+.accordion-header {
   @include inline-block(100%,20px,auto,top,20px);
   @include box-sizing("border-box");
-  @include accordion_arrow("default");
+  @include collapsible-arrow("default");
   color: $wixBlue;
   font-size: 14px;
   cursor: pointer;
   padding-left: 30px;
-  margin-bottom: 10px;
   outline: none;
   cursor: pointer;
   position: relative;
   text-align: left;
   overflow: hidden;
 
-  &:not(.ui-state-active):hover { @include accordion_arrow("hover"); }
+  &:not(.ui-state-active):hover { @include collapsible-arrow("hover"); }
   &.ui-state-active {
-    @include accordion_arrow("active");
+    @include collapsible-arrow("active");
     color: black; }
 }

@@ -1,6 +1,6 @@
 $imgHeight: image-height("settings/ge/ge_arrow_collapsible.png");
 
-%accordion_arrow_base {
+%collapsible-arrow-base {
   content:"";
   background: transparent inline-image("settings/ge/ge_arrow_collapsible.png");
   display: inline-block;
@@ -11,9 +11,9 @@ $imgHeight: image-height("settings/ge/ge_arrow_collapsible.png");
   left: 5px;
   top: 50%; }
 
-@mixin accordion_arrow($state) {
+@mixin collapsible-arrow($state) {
   &:before {
-    @extend %accordion_arrow_base;
+    @extend %collapsible-arrow-base;
     @if $state == "hover" {
       background-position: 0 -#{$imgHeight / 3};
     } @elseif $state == "default" {

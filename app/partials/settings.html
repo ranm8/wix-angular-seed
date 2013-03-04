@@ -1,6 +1,6 @@
 <div class="settings-window" xmlns="http://www.w3.org/1999/html">
     <!-- connect account -->
-    <div class="box_style top_section inline_block">
+    <div class="box-style top-section inline-block">
         <a target="_blank" href="https://www.google.com/adsense" id="logo">
             <img src="images/demo/logo.png" alt="Google AdSense">
         </a>
@@ -10,18 +10,18 @@
                 content. Just connect your Google AdSense account.</p>
 
             <p>Your ad will be active up to 24 hours after you save the settings for your ad.</p>
-            <a class="connect_button action_links">Connect Account</a>
+            <a class="connect-button action-links">Connect Account</a>
 
-            <p class="create_account">Don't have a Google account?
+            <p class="create-account">Don't have a Google account?
                 <a target="_blank" href="https://www.google.com/adsense">Create one</a>
         </div>
     </div>
 
     <!-- accordion -->
-    <div data-ui-accordion data-ui-height-style="auto" data-ui-header="div > h2">
+    <div class="accordion-window" data-ui-accordion data-ui-height-style="fill" data-ui-header="div > h2">
         <!-- contents settings -->
-        <div class="box_style clearfix settings_layout">
-            <h2 class="box_title">Contents</h2>
+        <div class="settings-layout">
+            <h2 class="accordion-header">Contents</h2>
             <div>
                 <ul class="types">
                     <li>
@@ -44,8 +44,8 @@
         </div>
 
         <!-- layout settings -->
-        <div class="box_style clearfix settings_layout">
-            <h2 class="box_title">Layout</h2>
+        <div class="settings-layout">
+            <h2 class="accordion-header">Layout</h2>
             <div>
                 <ul class="layouts">
                     <li class="rectangle">
@@ -61,7 +61,7 @@
                         <label for="LayoutBanner">Wide</label>
                     </li>
                 </ul>
-                <div class="cornder_radius">
+                <div class="cornder-radius">
                     <h3>Corner style</h3>
                     <div class="radiuses">
                         <input data-ng-model="user.corner" type="radio" value="square" id="Square" />
@@ -78,33 +78,33 @@
         </div>
 
         <!-- style settings -->
-        <div class="box_style clearfix">
-            <h2 class="box_title">Style</h2>
+        <div>
+            <h2 class="accordion-header">Style</h2>
             <div>
                 <div>
                     <ul>
-                        <li class="style_setting">
+                        <li class="style-setting">
                             <label for="font-type">Font</label>
                             <select style="width: 100px;" data-ui-chosen data-ng-model="user.fontFamily" id="font-type"></select>
 
                             <label for="font-size">Size</label>
                             <select style="width: 100px;" data-ui-chosen data-ng-model="user.fontSize" id="font-size"></select>
                         </li>
-                        <li class="style_setting">
+                        <li class="style-setting">
                             <label class="colorPicker_label" for="title-color">Title color</label>
                             <input data-ng-model="user.titleColor" type="text" id="title-color" data-ui-colorpicker />
                         </li>
-                        <li class="style_setting">
+                        <li class="style-setting">
                             <label class="colorPicker_label" for="url-color">URL color</label>
                             <input data-ng-model="user.urlColor" type="text" id="url-color" data-ui-colorpicker />
                         </li>
-                        <li class="style_setting">
+                        <li class="style-setting">
                             <div class="color">
                                 <label class="colorPicker_label" for="border-color">Border color</label>
                                 <input data-ng-model="user.borderColor" type="text" id="border-color" data-ui-colorpicker />
                             </div>
                         </li>
-                        <li class="style_setting">
+                        <li class="style-setting">
                             <div class="color">
                                 <label class="colorPicker_label" for="background-color">Background color</label>
                                 <input data-ng-model="user.backgroundColor" type="text" id="background-color" data-ui-colorpicker />

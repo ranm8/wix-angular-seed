@@ -7,7 +7,7 @@ $padding: 20px;
   padding: $padding;
   position: relative;
 }
-.box_style {
+.box-style {
   border: 1px solid $wixGray;
   border-radius: 8px;
   background: #fff;
@@ -22,8 +22,8 @@ $padding: 20px;
 /* *********** */
 /* top section */
 /* *********** */
-.top_section {
-  @extend .box_style;
+.settings-top {
+  @extend .box-style;
   font-size: 0;
   & > div {
     display: inline-block;

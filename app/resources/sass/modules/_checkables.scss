@@ -13,5 +13,5 @@
     top: 1px; }
   &:checked + label:before { background-position: 0 -#{image-height($imagePath) / 2}; }
 }
-.wix_checkbox { @include wixCheckable("checkbox"); }
-.wix_radio { @include wixCheckable("radio"); }
+.wix-checkbox { @include wixCheckable("checkbox"); }
+.wix-radio { @include wixCheckable("radio"); }

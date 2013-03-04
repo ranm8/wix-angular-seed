@@ -25,5 +25,5 @@
     box-shadow: 1px 1px 1px $borderColor inset;
     color: $txtColor; }
 }
-.btn_blue { @include wixButton(#00a5ff); }
-.btn_white { @include wixButton(#f6f6f6); }
+.btn-blue { @include wixButton(#00a5ff); }
+.btn-white { @include wixButton(#f6f6f6); }
