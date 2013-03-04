@@ -1,6 +1,7 @@
 .accordion-window > div {
   @extend .box-style;
   margin: $padding 0 0; }
+
 .accordion-header {
   @include inline-block(100%,20px,auto,top,20px);
   @include box-sizing("border-box");
@@ -11,7 +12,6 @@
   padding-left: 30px;
   outline: none;
   cursor: pointer;
-  position: relative;
   text-align: left;
   overflow: hidden;
 

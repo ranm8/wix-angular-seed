@@ -12,6 +12,7 @@ $imgHeight: image-height("settings/ge/ge_arrow_collapsible.png");
   top: 50%; }
 
 @mixin collapsible-arrow($state) {
+  position: relative;
   &:before {
     @extend %collapsible-arrow-base;
     @if $state == "hover" {

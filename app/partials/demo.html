@@ -24,7 +24,7 @@
   <div class="settings-window">
 
     <!-- Top settings pane -->
-    <div class="settings-top">
+    <div class="settings-header">
 
       <!-- App logo -->
       <div class="logo">
@@ -39,14 +39,30 @@
         <a class="btn-blue bottom-right">Connect Account</a>
         <p class="bottom-left">Don't have a Google account? <a target="_blank" href="#">Create one</a>
       </div>
-      <div data-ng-show="connected()" class="connect">
-        <p class="description">You are now connected to your AdSense. </p>
-        <p class="disconnect">
-          <a class="btn-blue bottom-right" href="" data-ng-click="disconnect()">Disconnect Account</a>
-        </p>
-      </div>
 
     </div>
+
+    <div class="accordion-window" data-ui-accordion data-ui-height-style="fill" data-ui-header="div > h2">
+      <div class="accordion-pane">
+        <h2 class="accordion-header">Contents</h2>
+        <div class="accordion-content">
+
+        </div>
+      </div>
+      <div class="accordion-pane">
+        <h2 class="accordion-header">Contents</h2>
+        <div class="accordion-content">
+
+        </div>
+      </div>
+      <div class="accordion-pane">
+        <h2 class="accordion-header">Contents</h2>
+        <div class="accordion-content">
+
+        </div>
+      </div>
+    </div>
+
   </div>
 
 </div>
