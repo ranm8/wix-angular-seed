@@ -1,0 +1,30 @@
+$imgHeight: image-height("settings/ge/ge_arrow_collapsible.png");
+
+%accordion_arrow_base {
+  content:"";
+  display: inline-block;
+  margin-top: -#{$imgHeight / 4};
+  height: $imgHeight / 2;
+  width: image-width("settings/ge/ge_arrow_collapsible.png");
+  position: absolute;
+  left: 5px;
+  top: 50%; }
+
+@mixin accordion_arrow($state) {
+  &:before {
+    @extend %accordion_arrow_base;
+    $arrowBg: #0099ff;
+    @if $state == "active" {
+      $arrowBg: #000;
+    }
+    @include background(linear-gradient($arrowBg,$arrowBg) center center / #{$imgHeight / 4} #{$imgHeight / 4} no-repeat); }
+  &:after {
+    @extend %accordion_arrow_base;
+    background: transparent inline-image("settings/ge/ge_arrow_collapsible.png");
+    @if $state == "active" {
+      @include rotate-element(90);
+    } @elseif $state == "hover" {
+      background-position: 0 -#{$imgHeight / 2};
+    }
+  }
+}
