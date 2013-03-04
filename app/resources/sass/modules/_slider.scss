@@ -1,7 +1,7 @@
 @mixin slider($width,$height) {
   @include box-sizing("border-box");
-  @include background-image("settings/bg/bg_slider.png", $image_repeat: repeat-x);
-  @include inline-block($width,$height,auto,auto,auto);
+  @include background-image("settings/bg/bg_slider.png", $image_repeat: repeat-x, $image_position: left center);
+  @include inline-block($width,$height,auto,middle,auto);
   margin: 0 5px;
   position: relative;
 

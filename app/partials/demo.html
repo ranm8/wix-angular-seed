@@ -1,26 +1,5 @@
 <div id="test-container">
 
-  <div>
-    <a href="#" class="btn-white">Something else</a>
-    <a href="#" class="btn-blue">Something else</a>
-  </div>
-
-  <div>
-    <input class="wix-radio" type="radio" value="radioValue" name="radioName" id="radioID"/>
-    <label for="radioID">This is a styled radio button</label>
-    <input class="wix-radio" type="radio" value="radioValue" name="radioName" id="radioID2"/>
-    <label for="radioID2">This is another styled radio button</label>
-  </div>
-
-  <div>
-    <input class="wix-checkbox" type="checkbox" value="checkboxValue" name="checkboxName" id="checkboxID"/>
-    <label for="checkboxID">This is a styled radio button</label>
-  </div>
-
-  <div>
-    <div class="colorPicker-picker"></div>
-  </div>
-
   <div class="settings-window">
 
     <!-- Top settings pane -->
@@ -50,35 +29,81 @@
         <h2 class="accordion-header">Contents</h2>
         <div class="accordion-content">
           <ul class="settings-list">
+
             <li class="settings-option">
               <label for="font-type">Font</label>
               <select style="width: 100px;" data-ui-chosen data-ng-model="user.fontFamily" id="font-type"></select>
             </li>
+
             <li class="settings-option">
               <label for="font-size">Size</label>
               <select style="width: 100px;" data-ui-chosen data-ng-model="user.fontSize" id="font-size"></select>
             </li>
+
             <li class="settings-option">
               <label class="colorPicker-label" for="title-color">Title color</label>
               <div class="colorPicker-picker"></div>
             </li>
+
             <li class="settings-option">
               <label class="colorPicker-label" for="text-color">Text color</label>
               <div class="colorPicker-picker"></div>
             </li>
+
             <li class="settings-option full-width">
               <label class="colorPicker-label" for="url-color">URL color</label>
               <div class="colorPicker-picker"></div>
             </li>
+
             <li class="settings-option full-width">
               <label class="colorPicker-label" for="border-color">Border color</label>
               <div class="colorPicker-picker"></div>
             </li>
-            <li class="settings-option full-width">
-              <label class="colorPicker-label" for="background-color">Background color</label>
+
+          </ul>
+        </div>
+      </div>
+
+      <!-- Accordion pane -->
+      <div class="accordion-pane">
+        <h2 class="accordion-header">Contents</h2>
+        <div class="accordion-content">
+          <ul class="settings-list">
+
+            <li class="settings-option">
+              <label class="colorPicker-label" for="">Search background</label>
               <div class="colorPicker-picker"></div>
             </li>
-        </ul>
+
+            <li class="settings-option">
+              <input id="opacity3" type="checkbox" class="wix-checkbox"/>
+              <label for="opacity3">Opacity</label>
+              <div class="ui-slider ui-disabled">
+                <a class="ui-slider-handle" href="#"></a>
+              </div>
+              <span class="opacity-count">4</span>
+            </li>
+
+            <li class="settings-option">
+              <label class="colorPicker-label" for="">Search border</label>
+              <div class="colorPicker-picker"></div>
+            </li>
+
+            <li class="settings-option">
+              <input id="opacity4" type="checkbox" class="wix-checkbox"/>
+              <label for="opacity4">Opacity</label>
+              <div class="ui-slider ui-disabled">
+                <a class="ui-slider-handle" href="#"></a>
+              </div>
+              <span class="opacity-count">4</span>
+            </li>
+
+            <li class="settings-option full-width">
+              <label class="colorPicker-label" for="border-color">Border color</label>
+              <div class="colorPicker-picker"></div>
+            </li>
+
+          </ul>
         </div>
       </div>
 
@@ -86,15 +111,42 @@
       <div class="accordion-pane">
         <h2 class="accordion-header">Contents</h2>
         <div class="accordion-content">
+          <ul class="settings-list">
 
-        </div>
-      </div>
+            <li class="settings-option">
+              <input id="something" type="checkbox" class="wix-checkbox"/>
+              <label for="something">Some checkbox</label>
+            </li>
 
-      <!-- Accordion pane -->
-      <div class="accordion-pane">
-        <h2 class="accordion-header">Contents</h2>
-        <div class="accordion-content">
+            <li class="settings-option">
+              <input id="opacity" type="checkbox" class="wix-checkbox"/>
+              <label for="opacity">Opacity</label>
+              <div class="ui-slider ui-disabled">
+                <a class="ui-slider-handle" href="#"></a>
+              </div>
+              <span class="opacity-count">4</span>
+            </li>
 
+            <li class="settings-option">
+              <input id="something2" type="checkbox" class="wix-checkbox"/>
+              <label for="something2">Some checkbox</label>
+            </li>
+
+            <li class="settings-option">
+              <input id="opacity2" type="checkbox" class="wix-checkbox"/>
+              <label for="opacity2">Opacity</label>
+              <div class="ui-slider ui-disabled">
+                <a class="ui-slider-handle" href="#"></a>
+              </div>
+              <span class="opacity-count">4</span>
+            </li>
+
+            <li class="settings-option full-width">
+              <input id="something3" type="checkbox" class="wix-checkbox"/>
+              <label for="something3">Some checkbox</label>
+            </li>
+
+          </ul>
         </div>
       </div>
 
