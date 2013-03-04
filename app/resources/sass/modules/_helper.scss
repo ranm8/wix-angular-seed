@@ -89,3 +89,75 @@ $wixDark: #3a3a3a;
     background: black; }
 }
 div.colorPicker-picker { @include colorPicker; }
+
+// ******************************************************************************************************************************
+// Settings window
+// ******************************************************************************************************************************
+#settings_popup {
+  width: 618px;
+  background: $bg_main;
+  padding: 15px 19px;
+  position: relative;
+  @include box-sizing("border-box");
+  .ajax-loader {
+    position: absolute;
+    top: 200px;
+    left: 300px; }
+  }
+    .box_style {
+        border: 1px solid $border_color;
+        background: #fff;
+        padding: 11px 11px 0;
+        margin-top: 17px;
+        @include border-radius(7px);
+        @include box-sizing("border-box");
+  }
+
+/* *********** */
+/* top section */
+/* *********** */
+.top_section {
+  height: 152px;
+  padding: 12px 20px;
+  margin: 0 0 20px;
+  #logo {
+    height: 100%;
+    padding: 0 20px 0 15px;
+    border-right: 1px solid #e7e7e7;
+    img { margin-top: 20px;} }
+}
+
+/* connect */
+.connect {
+  position: relative;
+  height: 100%;
+  width: 430px;
+  padding: $connect_paddingTop 0 $connect_paddingBottom $connect_paddingLeft;
+  @include box-sizing("border-box");
+  p {
+    font-size: 12px;
+    margin-right: 20px;
+    color: $color_darkGrey; }
+  p a { text-decoration: underline; }
+  p + p {
+    margin-top: 13px;
+    color: $color_lightGrey; }
+  .choose_blog,
+  .create_account,
+  .create_blog {
+    position: absolute;
+    width: 135px;
+    color: #aaa;
+    font-size: 12px;
+    bottom: 0;
+    left: $connect_paddingLeft;
+    a { color: $color_wixBlue; } }
+  .disconnect, .connect_button {
+    position: absolute;
+    right: 0;
+    bottom: 0; }
+  .create_account {
+    color: $color_lightGrey;
+    font-size: 12px;
+    width: auto; }
+}
