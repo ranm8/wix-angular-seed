@@ -1,0 +1,27 @@
+@mixin wixButton($color) {
+  $shadedColor: shade($color,15%);
+  $txtColor: $wixWhite;
+  $borderColor: shade($wixGray,15%);
+
+  @if lightness($color) >= 60% {
+    $txtColor: $wixDark;
+    $borderColor: $wixGray;
+  }
+
+  @include background($color linear-gradient($color 30%,$shadedColor 70%));
+
+  padding: 5px 10px;
+  border-radius: 4px;
+  display: inline-block;
+  border: 1px solid $borderColor;
+  color: $txtColor;
+
+  &:hover {
+    box-shadow: 1px 2px 2px $borderColor;
+    color: $txtColor; }
+  &:focus, &:active {
+    box-shadow: 1px 1px 1px $borderColor inset;
+    color: $txtColor; }
+}
+.btn_blue { @include wixButton(#00a5ff); }
+.btn_white { @include wixButton(#f6f6f6); }

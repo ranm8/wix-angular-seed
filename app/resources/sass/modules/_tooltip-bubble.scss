@@ -1,0 +1,69 @@
+// # ------------------- SNIP -------------------
+// snippet tooltip-bubble
+// @include tooltip-bubble ( ${1:tooltip-size}, ${2:bg_color}, ${3:border-color}, ${4:border-width}, ${5:position-top-bottom-left-right}, ${6:location-start-middle-end})
+// endsnippet
+// # ------------------- SNAP -------------------
+
+@mixin tooltip-bubble($tooltip-size,
+                      $background-color: white,
+                      $border-color: transparent,
+                      $border-width: 1px,
+                      $position: left,
+                      $location: 50%) {
+/* variables */
+  $xy-location: $tooltip-size * 2;
+  $outer-border: $border-width * 2;
+  $outer-tooltip: $tooltip-size + $border-width;
+
+  border: $border-width solid $border-color;
+  background: $background-color;
+  position: relative;
+  z-index: 1;
+
+  &:before, &:after {
+    content: " ";
+    height: 0;
+    width: 0;
+    border: $tooltip-size solid transparent;
+    position: absolute;
+    #{$position}: -#{$xy-location};
+
+    @if $position == left {
+      top: $location;
+      margin-top: -#{$tooltip-size};
+      border-right-color: $background-color;
+    } @else if $position == right {
+      top: $location;
+      margin-top: -#{$tooltip-size};
+      border-left-color: $background-color;
+    } @else if $position == top {
+      left: $location;
+      margin-left: -#{$tooltip-size};
+      border-bottom-color: $background-color;
+    } @else if $position == bottom {
+      left: $location;
+      margin-left: -#{$tooltip-size};
+      border-top-color: $background-color;
+    }
+  }
+
+  &:before {
+    border: solid $outer-tooltip transparent;
+    #{$position}: -#{$xy-location + $outer-border};
+
+    @if $position == left {
+      border-right-color: $border-color;
+      margin-top: -#{$outer-tooltip};
+    } @else if $position == right {
+      border-left-color: $border-color;
+      margin-top: -#{$outer-tooltip};
+    } @else if $position == top {
+      border-bottom-color: $border-color;
+      margin-left: -#{$outer-tooltip};
+    } @else if $position == bottom {
+      border-top-color: $border-color;
+      margin-left: -#{$outer-tooltip};
+    }
+  }
+
+}

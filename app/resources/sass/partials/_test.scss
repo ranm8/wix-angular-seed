@@ -8,8 +8,8 @@ padding:20px 0 30px; }
 /*extras - just to make it look good here, for me*/
 /*should be the style for the container or it's direct child (divs) */
 #test_container {
-  @include box-shadow(0 1px 4px rgba(0,0,0,0.3),
-                      0 0 40px rgba(0,0,0,0.1) inset);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3),
+              0 0 40px rgba(0,0,0,0.1) inset;
   position:relative;
   z-index:1;
   width:800px;
