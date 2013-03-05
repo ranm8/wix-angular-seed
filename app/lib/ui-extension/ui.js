@@ -87,7 +87,7 @@
          * @name Ui.uiSlider
          * @description
          * Makes a DOM div element to work as a slider element. It requires jQueryUI slider component to work but it
-         * will not throw any exceptions if it not available.
+         * will not throw any exceptions if it's not available.
          *
          * It can be configured with the following HTML attributes:
          *   ui-range: whether the slider represents a range.
@@ -134,8 +134,22 @@
         /**
          * @name Ui.uiDatePicker
          * @description
-         * Activates a DOM input element as a date picker element. It requires jQueryUI to be loaded into the page for
-         * it to have any effect.
+         * Makes a DOM input element with type text to work as a date picker element. It requires jQueryUI datepicker
+         * component to work but it will not throw any exceptions if it's not available.
+         *
+         * It can be configured with the following HTML attributes:
+         *   ui-change-month: whether the month should be rendered as a dropdown instead of text.
+         *   ui-change-year: whether the year should be rendered as a dropdown instead of text. Use the ui-year-range
+         *     option to control which years are made available for selection.
+         *   ui-year-range: The range of years displayed in the year drop-down: either relative to today's year
+         *     ("-nn:+nn"), relative to the currently selected year ("c-nn:c+nn"), absolute ("nnnn:nnnn"), or
+         *     combinations of these formats ("nnnn:-nn"). Note that this option only affects what appears in the
+         *     drop-down, to restrict which dates may be selected use the minDate and/or maxDate options.
+         *
+         * @example
+         *   The following HTML tag would be turned into a date picker element:
+         *     <input type="text" ui-datepicker ng-model="model" ui-change-month="false" ui-change-year="true"
+         *            ui-year-range="2000-2010" />
          */
         .directive('uiDatepicker', [function() {
             return {
@@ -145,9 +159,17 @@
                         return;
                     }
 
+                    function toBool(input) {
+                        if (typeof input === 'string') {
+                            return input.toLowerCase() === 'true';
+                        }
+
+                        return !!input;
+                    }
+
                     elm.datepicker({
-                        changeMonth: attr.uiChangeMonth === 'true',
-                        changeYear: attr.uiChangeYear === 'true',
+                        changeMonth: toBool(attr.uiChangeMonth),
+                        changeYear: toBool(attr.uiChangeYear),
                         yearRange: attr.uiYearRange
                     });
 
