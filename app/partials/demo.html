@@ -1,8 +1,9 @@
 <div id="test-container">
 
+  <!-- Settings window -->
   <div class="settings-window">
 
-    <!-- Top settings pane -->
+    <!-- Top pane -->
     <div class="settings-header">
 
       <!-- App logo -->
@@ -11,6 +12,7 @@
           <img src="images/demo/logo.png" alt="Application Logo">
         </a>
       </div>
+      <!-- / App logo -->
 
       <!-- Connect box -->
       <div data-ng-hide="connected()" class="connect">
@@ -18,10 +20,12 @@
         <a class="btn-blue bottom-right">Connect Account</a>
         <p class="bottom-left">Don't have a Google account? <a target="_blank" href="#">Create one</a>
       </div>
+      <!-- / Connect box -->
 
     </div>
+    <!-- / Top pane -->
 
-    <!-- Settings accordion -->
+    <!-- Accordion window -->
     <div class="accordion-window" data-ui-accordion data-ui-height-style="auto" data-ui-header="div > h2">
 
       <!-- Accordion pane -->
@@ -63,6 +67,7 @@
           </ul>
         </div>
       </div>
+      <!-- / Accordion pane -->
 
       <!-- Accordion pane -->
       <div class="accordion-pane">
@@ -106,6 +111,7 @@
           </ul>
         </div>
       </div>
+      <!-- / Accordion pane -->
 
       <!-- Accordion pane -->
       <div class="accordion-pane">
@@ -149,9 +155,18 @@
           </ul>
         </div>
       </div>
+      <!-- / Accordion pane -->
 
     </div>
+    <!-- / Accordion window -->
+
+    <!-- Loader -->
+    <div class="ajax-loader" data-ui-loader>
+        <img src="images/loader.gif" width="20" height="20" alt="loader"/>
+    </div>
+    <!-- / Loader -->
 
   </div>
+  <!-- / Settings window -->
 
 </div>
