@@ -1,7 +1,31 @@
-%date-picker {
+%date-picker-input {
   @include inline-block(65px,23px,auto,middle,23px);
   margin: 0;
   padding: 0 5px;
   font-size: 13px;
 }
-input[data-ui-datepicker].hasDatepicker { @extend %date-picker; }
+@mixin date-picker-changer($prev-next) {
+  $arrowSize: 5px;
+  &:before {
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 50%;
+    margin-top: -#{$arrowSize};
+    left: 50%;
+    border: $arrowSize solid transparent;
+    border-#{$prev-next}-color: #0099ff;
+
+    @if $prev-next == "left" {
+      margin-left: -#{$arrowSize / 2 };
+    } @elseif $prev-next == "right" {
+      margin-left: -#{$arrowSize * 1.5 };
+    }
+  }
+  &:hover:before { border-#{$prev-next}-color: #fff; }
+}
+
+input[data-ui-datepicker].hasDatepicker { @extend %date-picker-input; }
+.ui-datepicker-prev { @include date-picker-changer("right"); }
+.ui-datepicker-next { @include date-picker-changer("left"); }
