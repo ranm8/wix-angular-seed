@@ -18,6 +18,7 @@
          */
         .filter('truncate', [function() {
             return function(text, length, preserve, separator) {
+                text = text || '';
                 length = length || 30;
                 preserve = preserve || false;
                 separator = separator || '...';
