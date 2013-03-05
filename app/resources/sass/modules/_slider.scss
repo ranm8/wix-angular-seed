@@ -1,0 +1,17 @@
+@mixin slider($width,$height) {
+  @include box-sizing("border-box");
+  @include background-image("settings/bg/bg_slider.png", $image_repeat: repeat-x, $image_position: left center);
+  @include inline-block($width,$height,auto,middle,auto);
+  margin: 0 5px;
+  position: relative;
+
+  .ui-slider-handle {
+    @include background-image("settings/ge/ge_slider_knob.png");
+    border: none;
+    position: absolute;
+    margin-left: -5px;
+    bottom: 0; }
+  .ui-slider-range { background: none; }
+  input:not(:checked) ~ & { @include opacity(0.5); }
+}
+.ui-slider { @include slider(100px,18px); }

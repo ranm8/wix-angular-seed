@@ -1,0 +1,24 @@
+$imgHeight: image-height("settings/ge/ge_arrow_collapsible.png");
+
+%collapsible-arrow-base {
+  content:"";
+  background: transparent inline-image("settings/ge/ge_arrow_collapsible.png");
+  display: inline-block;
+  margin-top: -#{$imgHeight / 6};
+  height: $imgHeight / 3;
+  width: image-width("settings/ge/ge_arrow_collapsible.png");
+  position: absolute;
+  left: 5px;
+  top: 50%; }
+
+@mixin collapsible-arrow($state) {
+  position: relative;
+  &:before {
+    @extend %collapsible-arrow-base;
+    @if $state == "hover" {
+      background-position: 0 -#{$imgHeight / 3};
+    } @elseif $state == "default" {
+      background-position: 0 -#{$imgHeight / 3 * 2};
+    }
+  }
+}

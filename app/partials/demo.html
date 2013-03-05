@@ -1,0 +1,172 @@
+<div id="test-container">
+
+  <!-- Settings window -->
+  <div class="settings-window">
+
+    <!-- Top pane -->
+    <div class="settings-header">
+
+      <!-- App logo -->
+      <div class="logo">
+        <a target="_blank" href="#">
+          <img src="images/demo/logo.png" alt="Application Logo">
+        </a>
+      </div>
+      <!-- / App logo -->
+
+      <!-- Connect box -->
+      <div data-ng-hide="connected()" class="connect">
+        <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent auctor accumsan hendrerit. Nulla dictum dignissim iaculis. Mauris in eros diam. Duis auctor rhoncus massa at commodo.</p>
+        <a class="btn-blue bottom-right">Connect Account</a>
+        <p class="bottom-left">Don't have a Google account? <a target="_blank" href="#">Create one</a>
+      </div>
+      <!-- / Connect box -->
+
+    </div>
+    <!-- / Top pane -->
+
+    <!-- Accordion window -->
+    <div class="accordion-window" data-ui-accordion data-ui-height-style="auto" data-ui-header="div > h2">
+
+      <!-- Accordion pane -->
+      <div class="accordion-pane">
+        <h2 class="accordion-header">Contents</h2>
+        <div class="accordion-content">
+          <ul class="settings-list">
+
+            <li class="settings-option">
+              <label for="font-type">Font</label>
+              <select style="width: 100px;" data-ui-chosen data-ng-model="user.fontFamily" id="font-type"></select>
+            </li>
+
+            <li class="settings-option">
+              <label for="font-size">Size</label>
+              <select style="width: 100px;" data-ui-chosen data-ng-model="user.fontSize" id="font-size"></select>
+            </li>
+
+            <li class="settings-option">
+              <label class="colorPicker-label" for="title-color">Title color</label>
+              <div class="colorPicker-picker"></div>
+            </li>
+
+            <li class="settings-option">
+              <label class="colorPicker-label" for="text-color">Text color</label>
+              <div class="colorPicker-picker"></div>
+            </li>
+
+            <li class="settings-option full-width">
+              <label class="colorPicker-label" for="url-color">URL color</label>
+              <div class="colorPicker-picker"></div>
+            </li>
+
+            <li class="settings-option full-width">
+              <label class="colorPicker-label" for="border-color">Border color</label>
+              <div class="colorPicker-picker"></div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+      <!-- / Accordion pane -->
+
+      <!-- Accordion pane -->
+      <div class="accordion-pane">
+        <h2 class="accordion-header">Contents</h2>
+        <div class="accordion-content">
+          <ul class="settings-list">
+
+            <li class="settings-option">
+              <label class="colorPicker-label" for="">Search background</label>
+              <div class="colorPicker-picker"></div>
+            </li>
+
+            <li class="settings-option">
+              <input id="opacity3" type="checkbox" class="wix-checkbox"/>
+              <label for="opacity3">Opacity</label>
+              <div class="ui-slider">
+                <a class="ui-slider-handle" href="#"></a>
+              </div>
+              <span class="opacity-count">4</span>
+            </li>
+
+            <li class="settings-option">
+              <label class="colorPicker-label" for="">Search border</label>
+              <div class="colorPicker-picker"></div>
+            </li>
+
+            <li class="settings-option">
+              <input id="opacity4" type="checkbox" class="wix-checkbox"/>
+              <label for="opacity4">Opacity</label>
+              <div class="ui-slider ui-disabled">
+                <a class="ui-slider-handle" href="#"></a>
+              </div>
+              <span class="opacity-count">4</span>
+            </li>
+
+            <li class="settings-option full-width">
+              <label class="colorPicker-label" for="border-color">Border color</label>
+              <div class="colorPicker-picker"></div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+      <!-- / Accordion pane -->
+
+      <!-- Accordion pane -->
+      <div class="accordion-pane">
+        <h2 class="accordion-header">Contents</h2>
+        <div class="accordion-content">
+          <ul class="settings-list">
+
+            <li class="settings-option">
+              <input id="something" type="checkbox" class="wix-checkbox"/>
+              <label for="something">Some checkbox</label>
+            </li>
+
+            <li class="settings-option">
+              <input id="opacity" type="checkbox" class="wix-checkbox"/>
+              <label for="opacity">Opacity</label>
+              <div class="ui-slider ui-disabled">
+                <a class="ui-slider-handle" href="#"></a>
+              </div>
+              <span class="opacity-count">4</span>
+            </li>
+
+            <li class="settings-option">
+              <input id="something2" type="checkbox" class="wix-checkbox"/>
+              <label for="something2">Some checkbox</label>
+            </li>
+
+            <li class="settings-option">
+              <input id="opacity2" type="checkbox" class="wix-checkbox"/>
+              <label for="opacity2">Opacity</label>
+              <div class="ui-slider ui-disabled">
+                <a class="ui-slider-handle" href="#"></a>
+              </div>
+              <span class="opacity-count">4</span>
+            </li>
+
+            <li class="settings-option full-width">
+              <input id="something3" type="checkbox" class="wix-checkbox"/>
+              <label for="something3">Some checkbox</label>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+      <!-- / Accordion pane -->
+
+    </div>
+    <!-- / Accordion window -->
+
+    <!-- Loader -->
+    <div class="ajax-loader" data-ui-loader>
+        <img src="images/loader.gif" width="20" height="20" alt="loader"/>
+    </div>
+    <!-- / Loader -->
+
+  </div>
+  <!-- / Settings window -->
+
+</div>
