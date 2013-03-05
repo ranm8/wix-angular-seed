@@ -170,11 +170,10 @@
                     elm.datepicker({
                         changeMonth: toBool(attr.uiChangeMonth),
                         changeYear: toBool(attr.uiChangeYear),
-                        yearRange: attr.uiYearRange
-                    });
-
-                    elm.datepicker('option', 'onSelect', function(date){
-                        ctrl.$setViewValue(date);
+                        yearRange: attr.uiYearRange,
+                        onSelect: function(date) {
+                            ctrl.$setViewValue(date);
+                        }
                     });
                 }
             };
