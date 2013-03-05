@@ -1,6 +1,10 @@
 /*
 Dialog implementation for popups.
 
+Add "ui-warning" for an exclamation mark.
+Example:
+<div id="dialog" title="Title" ui-warning>Dialog description...</div>
+
 Automatically imports with the dialog module.
 See <a href="#">Dialog module</a>
 */
@@ -8,23 +12,27 @@ See <a href="#">Dialog module</a>
 @mixin dialog-modal {
   box-shadow: 0 0 8px #bbb;
   border-radius: 10px;
-  background: #fff;
   overflow: hidden;
+  z-index: 1;
+  text-align: left;
   padding: 10px;
+  background: #fff;
 
+  &.warning {
+    padding-left: 70px;
+    background: #fff inline-image("settings/ge/ge_exclamation.png") 15px 50px no-repeat; }
   .ui-dialog-titlebar span {
     display: inline-block;
-    padding: 10px 0 15px 65px;
+    font-size: 20px;
+    padding: 10px 0;
     color: red; }
   .ui-dialog-titlebar-close {
     @include background-image("settings/ge/ge_close.png");
     position: absolute;
     right: 10px;
-    top: 10px; }
-  #dialog {
-    margin-bottom: 15px;
-    padding-left: 65px;
-    background: transparent inline-image("settings/ge/ge_exclamation.png") 10px 10px no-repeat; }
+    top: 10px;
+    border: none;
+    outline: none; }
   .ui-dialog-buttonset {
     button { float: left; }
     button:first-child { float: right; } }
