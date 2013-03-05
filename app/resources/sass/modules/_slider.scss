@@ -11,7 +11,7 @@
     position: absolute;
     margin-left: -5px;
     bottom: 0; }
-  .ui-slider-range { background: none;}
-  &.ui-slider-disabled { @include opacity(50); }
+  .ui-slider-range { background: none; }
+  input:not(:checked) ~ & { @include opacity(0.5); }
 }
 .ui-slider { @include slider(100px,18px); }
