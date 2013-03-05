@@ -1,3 +1,10 @@
+/*
+Color picker implementation.
+
+Automatically imports with the color picker module.
+See <a href="#">Color picker module</a>
+*/
+
 @mixin colorPicker {
   $imagePath: "settings/btn/btn_colorpicker.png";
   @include background-image($imagePath);

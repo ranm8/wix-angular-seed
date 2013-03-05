@@ -1,3 +1,10 @@
+/*
+Dialog implementation for popups.
+
+Automatically imports with the dialog module.
+See <a href="#">Dialog module</a>
+*/
+
 @mixin dialog-modal {
   box-shadow: 0 0 8px #bbb;
   border-radius: 10px;

@@ -1,3 +1,20 @@
+/*
+Wix buttons mixin -
+Just add a color and it will calculate everything accordinly.
+Include:
+  + Linear gradient, using shade function in compass.
+  + Border color and text color according to the color brightness.
+  + Two most common wix button styles (btn-blue and btn-white).
+
+In your scss:
+.btn-color { @include wixButton($color); }
+
+In your html:
+<a href="#" class="btn-color">Some button</a>
+
+TODO: On-the-fly button generator.
+*/
+
 @mixin wixButton($color) {
   $shadedColor: shade($color,15%);
   $txtColor: $wixBright;

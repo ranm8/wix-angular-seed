@@ -1,9 +1,13 @@
-// # ------------------- SNIP -------------------
-// snippet background-image
-// @include background-image ( ${1:image-path}, ${2:transparent}, ${3:top left}, ${4:no-repea});
-// endsnippet
-// # ------------------- SNAP -------------------
+/*
+A mixin to take an image path and:
+  + Implement it as a data URI.
+  + Calculate its width and height.
+  + Add an inline-block display.
+Its main purpose is to simplify implementation of image replacement.
 
+In your scss:
+.some-class { @include background-image("path-to-image.jpg"[,additional-arguments]); }
+*/
 @mixin background-image($image_path, $image_bgColor: transparent, $image_position: top left, $image_repeat: no-repeat) {
   background: $image_bgColor inline-image("../images/" + $image_path) $image_position $image_repeat;
   height: image-height($image_path);

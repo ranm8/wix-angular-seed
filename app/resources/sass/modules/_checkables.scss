@@ -1,3 +1,15 @@
+/*
+Wix checkboxes and radio button implementation.
+Takes the form of:
+
+In your html:
+<input id="checkboxID" type="checkbox" class="wix-checkbox"/>
+<label for="checkboxID">Some checkbox</label>
+
+<input id="radioID" type="radio" class="wix-radio"/>
+<label for="radioID">Some radio</label>
+*/
+
 @mixin wixCheckable($type) {
   $imagePath: "settings/btn/btn_radio.png";
   @if $type == "checkbox" {

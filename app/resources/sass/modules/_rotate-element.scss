@@ -1,8 +1,8 @@
-// # ------------------- SNIP -------------------
-// snippet rotate
-// @include rotate(${1:degrees});
-// endsnippet
-// # ------------------- SNAP -------------------
+/*
+Rotate an element by degress.
+Can only get a multiplication of 90 degrees for sane behavior.
+Other rotations needs careful consideration first to align properly.
+*/
 
 @mixin rotate-element($deg) {
   @include rotate($deg + deg);

@@ -1,3 +1,17 @@
+/*
+Collapsible arrow implementation:
+Styles the arrow for the accordion panes.
+Default, Hover and Active state.
+
+In your scss:
+.default-state { @include collapsible-arrow("default"); }
+.hover-state { @include collapsible-arrow("hover"); }
+.active-state { @include collapsible-arrow("active"); }
+
+Automatically imports with the accordion module.
+See <a href="#">Accordion module</a>.
+*/
+
 $imgHeight: image-height("settings/ge/ge_arrow_collapsible.png");
 
 %collapsible-arrow-base {

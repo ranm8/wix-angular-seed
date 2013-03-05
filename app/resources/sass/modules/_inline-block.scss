@@ -1,8 +1,7 @@
-// # ------------------- SNIP -------------------
-// snippet inline-block
-// @include inline-block(${1:width}, ${2:height}, ${3:text-align}, ${4:vertical-align});
-// endsnippet
-// # ------------------- SNAP -------------------
+/*
+Helper to ease the use of inline-blocks -
+The faster, more usable and more sane use of aligning elements horizontally.
+*/
 
 @mixin inline-block($width: auto, $height: auto, $h_align: auto, $v_align: auto, $line_height: auto) {
   display: inline-block;
