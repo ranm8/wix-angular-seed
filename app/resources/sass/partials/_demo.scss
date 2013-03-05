@@ -1,12 +1,17 @@
-/*general rules*/
+html,
 body {
+    width:100%;
+    height:100%;
+}
+html {display:table;}
+body {
+display:table-cell;
+vertical-align:middle;
 text-align:center;
 color:#333;
 background:#FAF0D9;
 padding:20px 0 30px; }
 
-/*extras - just to make it look good here, for me*/
-/*should be the style for the container or it's direct child (divs) */
 #main {
   box-shadow: 0 1px 4px rgba(0,0,0,0.3),
               0 0 40px rgba(0,0,0,0.1) inset;
@@ -28,6 +33,7 @@ padding:20px 0 30px; }
   p {
     font-size: 14px;
     margin: 20px 0; }
+  .lead { font-size: 20px; }
   .btn { float: right; }
   .header { padding: 20px 0; }
   & > div:not(.header) {
