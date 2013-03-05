@@ -74,18 +74,11 @@
             return {
                 require: 'ngModel',
                 link: function(scope, elm, attr, ctrl) {
-                    if (!elm.colorPicker) {
+                    if (!elm.ColorPicker) {
                         return;
                     }
 
-                    elm.colorPicker({
-                        onColorChange: function(id, value) {
-                            scope.$apply(function() {
-                                ctrl.$setViewValue(value);
-                            });
-                        },
-                        pickerDefault: scope.$eval(attr.ngModel)
-                    });
+                    elm.ColorPicker();
                 }
             };
         })
