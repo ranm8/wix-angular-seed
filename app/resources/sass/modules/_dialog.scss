@@ -9,11 +9,11 @@ Automatically imports with the dialog module.
 See <a href="#">Dialog module</a>
 */
 
-@mixin dialog-modal {
+%dialog-modal {
   box-shadow: 0 0 8px #bbb;
   border-radius: 10px;
   overflow: hidden;
-  z-index: 1;
+  z-index: 2;
   text-align: left;
   padding: 10px;
   background: #fff;
@@ -38,4 +38,18 @@ See <a href="#">Dialog module</a>
     button { float: left; }
     button:first-child { float: right; } }
 }
-.ui-dialog { @include dialog-modal; }
+%dialog-overlay {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #111 50% 50% repeat;
+  opacity: .7;
+  filter: Alpha(Opacity=70);
+}
+
+.ui-dialog { @extend %dialog-modal; }
+.ui-widget-overlay { @extend %dialog-overlay; }
