@@ -83,14 +83,50 @@
             };
         })
 
+        /**
+         * @name Ui.uiSlider
+         * @description
+         * Makes a DOM div element to work as a slider element. It requires jQueryUI slider component to work but it
+         * will not throw any exceptions if it not available.
+         *
+         * It can be configured with the following HTML attributes:
+         *   ui-range: whether the slider represents a range.
+         *   min: the minimum value of the slider.
+         *   max: the maximum value of the slider.
+         *   disabled: controls whether the slider should be disabled.
+         *
+         * @example
+         *   The following HTML tag would be turned into a slider element:
+         *     <div data-ui-slider min="1" max="10" data-ng-model="user.searchBackgroundOpacity"
+         *          data-ng-disabled="!user.searchBackground"></div>
+         */
         .directive('uiSlider', function() {
             return {
+                require: 'ngModel',
                 link: function(scope, elm, attr, ctrl) {
                     if (!elm.slider) {
                         return;
                     }
 
-                    elm.slider();
+                    ctrl.$render = function() {
+                        elm.slider('option', 'value', ctrl.$viewValue);
+                    };
+
+                    elm.on('slidechange', function(event, ui) {
+                        scope.$apply(function() {
+                            ctrl.$setViewValue(ui.value);
+                        });
+                    });
+
+                    scope.$watch(function() { return attr.disabled; }, function(value) {
+                        elm.slider('option', 'disabled', value);
+                    });
+
+                    elm.slider({
+                        range: attr.uiRange,
+                        min: parseInt(attr.min),
+                        max: parseInt(attr.max)
+                    });
                 }
             };
         })

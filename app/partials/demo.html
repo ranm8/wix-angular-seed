@@ -25,8 +25,8 @@
             </div>
             <!-- / Connect box -->
 
-    </div>
-    <!-- / Top pane -->
+        </div>
+        <!-- / Top pane -->
 
         <!-- Accordion window -->
         <div class="accordion-window" data-ui-accordion data-ui-height-style="auto" data-ui-header="div > h2">
@@ -97,13 +97,17 @@
                         </li>
 
                         <li class="settings-option">
-                            <input id="opacity3" type="checkbox" class="wix-checkbox"/>
+                            <input id="opacity3" type="checkbox" class="wix-checkbox"
+                                   data-ng-model="user.searchBackground"/>
                             <label for="opacity3">Opacity</label>
 
-                            <div class="ui-slider">
-                                <a class="ui-slider-handle" href=""></a>
-                            </div>
-                            <span class="opacity-count">4</span>
+                            <div data-ui-slider min="1" max="10" data-ng-model="user.searchBackgroundOpacity"
+                                 data-ng-disabled="!user.searchBackground"></div>
+
+                            <!--<div class="ui-slider">-->
+                            <!--<a class="ui-slider-handle" href=""></a>-->
+                            <!--</div>-->
+                            <span class="opacity-count">{{ user.searchBackgroundOpacity }}</span>
                         </li>
 
                         <li class="settings-option">
