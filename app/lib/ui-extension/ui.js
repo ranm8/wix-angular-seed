@@ -244,6 +244,8 @@
                  * @param {Object} options A configuration object, currently there are no options to configure.
                  */
                 open: function(templateUrl, options) {
+                    options = options || {};
+
                     $http.get(templateUrl).success(function(response) {
                         var scope = $rootScope.$new();
 
