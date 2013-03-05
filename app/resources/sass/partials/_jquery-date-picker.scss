@@ -26,13 +26,10 @@
 .ui-datepicker .ui-datepicker-prev,
 .ui-datepicker .ui-datepicker-next {
 	position: absolute;
-	top: 2px;
+	top: 50%;
+  margin-top: -12px;
 	width: 1.8em;
 	height: 1.8em;
-}
-.ui-datepicker .ui-datepicker-prev-hover,
-.ui-datepicker .ui-datepicker-next-hover {
-	top: 1px;
 }
 .ui-datepicker .ui-datepicker-prev {
 	left: 2px;
@@ -289,3 +286,5 @@
   	filter:Alpha(Opacity=35); /* For IE8 - See #6059 */
   }
 }
+.ui-datepicker select.ui-datepicker-month,
+.ui-datepicker select.ui-datepicker-year { display: inline-block; }
