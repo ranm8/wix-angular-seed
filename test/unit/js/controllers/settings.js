@@ -20,6 +20,9 @@
                     refreshCurrentApp: jasmine.createSpy('refreshCurrentApp')
                 }
             },
+            uiDialog = {
+                open: jasmine.createSpy('open')
+            },
             ctrl,
             scope,
             httpBackend;
@@ -28,13 +31,24 @@
             httpBackend = $httpBackend;
 
             scope = $rootScope.$new();
-            ctrl = new DemoCtrl(scope ,$http , router, sdk, user);
+            ctrl = new DemoCtrl(scope ,$http , router, sdk, uiDialog, user);
 
             scope.$digest();
         }));
 
         it('should put the user model on the provided scope', function() {
             expect(scope.user).toEqual(user);
+        });
+
+        it('should put the font families and sizes on the provided scope', function() {
+            expect(scope.fontFamily.length).toEqual(3);
+            expect(scope.fontSize.length).toEqual(3);
+        });
+
+        it('should open a dialog when connect() is called', function() {
+            scope.connect();
+
+            expect(uiDialog.open).toHaveBeenCalled();
         });
 
         it('should watch user model changes and fire http requests', function() {
