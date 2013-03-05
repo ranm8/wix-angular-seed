@@ -5,9 +5,9 @@
     'use strict';
 
     /**
-     * Simple settings control that can be used as a starting place.
+     * Simple demo control that can be used as a starting place.
      */
-    var SettingsCtrl = function($scope, $http, router, sdk, user) {
+    var DemoCtrl = function($scope, $http, router, sdk, user) {
         /**
          * User model. Holds data on the active user.
          */
@@ -31,7 +31,7 @@
     /**
      * These promises will be resolved before the page is loaded and rendered to a user.
      */
-    SettingsCtrl.resolve = {
+    DemoCtrl.resolve = {
         /**
          * Fetching a user model from the backend to make it available to this controller.
          */
@@ -49,10 +49,10 @@
     /**
      * Concrete injections
      */
-    SettingsCtrl.$inject = ['$scope', '$http', 'router', 'sdk', 'user'];
+    DemoCtrl.$inject = ['$scope', '$http', 'router', 'sdk', 'user'];
 
     /**
      * Import to global scope
      */
-    window.SettingsCtrl = SettingsCtrl;
+    window.DemoCtrl = DemoCtrl;
 }(window));

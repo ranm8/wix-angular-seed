@@ -151,11 +151,11 @@
          */
         describe('Colorpicker directive', function() {
             beforeEach(function() {
-                angular.element.prototype.colorPicker = jasmine.createSpy('colorPicker');
+                angular.element.prototype.ColorPicker = jasmine.createSpy('colorPicker');
             });
 
             it('should not do anything if the Chosen plugin is not available', function() {
-                delete angular.element.prototype.colorPicker;
+                delete angular.element.prototype.ColorPicker;
 
                 function $compile() {
                     compile('<select ui-colorpicker ng-model="model"></select>')(rootScope);
@@ -174,7 +174,7 @@
 
             it('should turn a text input element into a colorPicker element', function() {
                 compile('<input type="text" ng-model="model" ui-colorpicker />')(rootScope);
-                expect(angular.element.prototype.colorPicker).toHaveBeenCalled();
+                expect(angular.element.prototype.ColorPicker).toHaveBeenCalled();
             });
         });
 

@@ -17,12 +17,9 @@
                     templateUrl: 'partials/welcome.html'
                 })
                 .when('/demo', {
+                    controller: window.DemoCtrl,
+                    resolve: window.DemoCtrl.resolve,
                     templateUrl: 'partials/demo.html'
-                })
-                .when('/settings', {
-                    controller: window.SettingsCtrl,
-                    resolve: window.SettingsCtrl.resolve,
-                    templateUrl: 'partials/settings.html'
                 })
                 .when('/view', {
                     controller: window.ViewCtrl,

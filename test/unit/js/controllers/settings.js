@@ -5,7 +5,7 @@
 (function(window) {
     'use strict';
 
-    describe('Settings Ctrl', function() {
+    describe('Demo Ctrl', function() {
         var user = {
                 name: 'Ronen',
                 job: 'Developer'
@@ -28,7 +28,7 @@
             httpBackend = $httpBackend;
 
             scope = $rootScope.$new();
-            ctrl = new SettingsCtrl(scope ,$http , router, sdk, user);
+            ctrl = new DemoCtrl(scope ,$http , router, sdk, user);
 
             scope.$digest();
         }));
