@@ -1,0 +1,6 @@
+%date-picker {
+  @include inline-block(100px,25px,auto,middle,25px);
+  margin: 0;
+  padding: 0;
+}
+.date-picker { @extend %date-picker; }
