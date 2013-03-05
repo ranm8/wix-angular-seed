@@ -83,6 +83,18 @@
             };
         })
 
+        .directive('uiSlider', function() {
+            return {
+                link: function(scope, elm, attr, ctrl) {
+                    if (!elm.slider) {
+                        return;
+                    }
+
+                    elm.slider();
+                }
+            };
+        })
+
         /**
          * @name Ui.uiDatePicker
          * @description
