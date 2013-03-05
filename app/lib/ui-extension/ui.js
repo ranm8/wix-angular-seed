@@ -300,7 +300,7 @@
          *
          * @example
          *   The following HTML tag would be turned into a draggable element:
-         *     <div data-ui-accordion data-ui-height-style="auto" data-ui-header="div > h2">
+         *     <div data-ui-accordion data-ui-height-style="auto" data-ui-header="div > h2"></div>
          */
         .directive('uiAccordion', function() {
             return {
@@ -370,13 +370,21 @@
         /**
          * @name Ui.uiLoader
          * @description
-         * Hides a DOM element and shows it only when loading take place. The element is being shown whenever an AJAX
-         * takes place or when a route change happens.
+         * Hides a DOM element and shows it only when loading take place. The element will only be shown during AJAX
+         * calls or during route changes.
+         *
+         * It can be configured with the following HTML attributes:
+         *   ui-duration: Determines how fast the element should be hidden and shown. Can be 'fast', 'medium' or
+         *     'slow'.
+         *
+         * @example
+         *   The following HTML tag would be turned into a draggable element:
+         *     <div data-ui-loader data-ui-duration="slow">loading...</div>
          */
         .directive('uiLoader', ['$rootScope', function($rootScope) {
             return {
                 link: function(scope, elm, attr, ctrl) {
-                    var duration = parseInt(attr.uiDuration, 10) || 'fast';
+                    var duration = parseInt(attr.uiDuration) || 'fast';
 
                     elm.hide();
 
