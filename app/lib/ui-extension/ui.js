@@ -140,8 +140,8 @@
          * @name Ui.uiDatePicker
          * @description
          * Makes a DOM input element with type text to work as a date picker element. It requires jQueryUI datepicker
-         * component to work but it will not throw any exceptions if it's not available. See @link
-         * { http://jqueryui.com/datepicker } for more information.
+         * component to work but it will not throw any exceptions if it's not available. See @link { http://jqueryui.com/datepicker }
+         * for more information.
          *
          * It can be configured with the following HTML attributes:
          *   ui-alt-format: The dateFormat to be used for the altField option. This allows one date format to be shown
