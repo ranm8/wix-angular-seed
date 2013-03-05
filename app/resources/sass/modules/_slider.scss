@@ -16,7 +16,7 @@ See <a href="#">Slider module</a>
     @include background-image("settings/ge/ge_slider_knob.png");
     border: none;
     position: absolute;
-    margin-left: -5px;
+    margin-left: -10px;
     bottom: 0; }
   .ui-slider-range { background: none; }
   input:not(:checked) ~ & { @include opacity(0.5); }
