@@ -1,6 +1,7 @@
 %date-picker {
-  @include inline-block(100px,25px,auto,middle,25px);
+  @include inline-block(65px,23px,auto,middle,23px);
   margin: 0;
-  padding: 0;
+  padding: 0 5px;
+  font-size: 13px;
 }
-.date-picker { @extend %date-picker; }
+input[data-ui-datepicker].hasDatepicker { @extend %date-picker; }
