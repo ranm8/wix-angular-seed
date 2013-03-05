@@ -1,0 +1,17 @@
+@mixin wixCheckable($type) {
+  $imagePath: "settings/btn/btn_radio.png";
+  @if $type == "checkbox" {
+    $imagePath: "settings/btn/btn_checkbox.png"; }
+  display: none;
+
+  & + label:before {
+    @include background-image($imagePath);
+    height: image-height($imagePath) / 2;
+    content:"";
+    margin-right: 7px;
+    position: relative;
+    top: 1px; }
+  &:checked + label:before { background-position: 0 -#{image-height($imagePath) / 2}; }
+}
+.wix-checkbox { @include wixCheckable("checkbox"); }
+.wix-radio { @include wixCheckable("radio"); }

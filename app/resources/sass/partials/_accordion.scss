@@ -1,0 +1,40 @@
+.accordion-window > div {
+  @extend .box-style;
+  margin: $padding 0 0; }
+
+.accordion-header {
+  @include inline-block(100%,20px,auto,top,20px);
+  @include box-sizing("border-box");
+  @include collapsible-arrow("default");
+  color: $wixBlue;
+  font-size: 14px;
+  cursor: pointer;
+  padding-left: 30px;
+  outline: none;
+  cursor: pointer;
+  text-align: left;
+  overflow: hidden;
+
+  &:not(.ui-state-active):hover { @include collapsible-arrow("hover"); }
+  &.ui-state-active {
+    @include collapsible-arrow("active");
+    color: black; }
+}
+
+.accordion-content {
+  .settings-list {
+    font-size: 0;
+    margin-top: $padding / 2;
+    padding: 0 $padding / 2;
+
+    .settings-option {
+      @include inline-block(50%,50px,auto,auto,50px);
+      border-top: 1px solid $wixGray; }
+    .full-width { width: 100%; }
+    label {
+      @include inline-block(140px,auto,auto,middle,auto);
+      margin: 0;
+      font-size: 14px; }
+    .chzn-container { vertical-align: middle; }
+  }
+}

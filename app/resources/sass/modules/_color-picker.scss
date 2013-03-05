@@ -1,0 +1,21 @@
+@mixin colorPicker {
+  $imagePath: "settings/btn/btn_colorpicker.png";
+  @include background-image($imagePath);
+  height: image-height($imagePath) / 3;
+
+  vertical-align: middle;
+  border: none;
+  position: relative;
+
+  &:hover { background-position: 0 -#{image-height($imagePath) / 3 + 1}; }
+  &:active { background-position: 0 -#{image-height($imagePath) / 3 * 2 + 1}; }
+  &:before {
+    @include inline-block(28px,16px,auto,auto,auto);
+    content:"";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: -1;
+    background: black; }
+}
+div.colorPicker-picker { @include colorPicker; }
