@@ -1,8 +1,8 @@
 {
     "content": "text",
-    "size": "size_300_250",
     "corner": "square",
     "fontFamily": "Arial",
+    "fontSize": "Medium",
     "titleColor": "ffffff",
     "urlColor": "000000",
     "borderColor": "ffffff",

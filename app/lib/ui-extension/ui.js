@@ -5,7 +5,7 @@
     'use strict';
 
     /**
-     * @name ngUi
+     * @name Ui
      * @description
      * Provides a collections of tools that manipulate the DOM to create interactive and engaging applications.
      *
@@ -37,7 +37,7 @@
         }])
 
         /**
-         * @name ngUi.uiChosen
+         * @name Ui.uiChosen
          * @description
          * Activates a DOM select element as a Chosen element. Requires the Chosen plugin to be loaded into the page
          * for any effect to take place.
@@ -65,7 +65,7 @@
         }])
 
         /**
-         * @name ngUi.uiColorpicker
+         * @name Ui.uiColorpicker
          * @description
          * Activates a DOM input element as a color picker element. Requires the ColorPicker plugin to be loaded for the
          * directive to do have an effect.
@@ -84,7 +84,7 @@
         })
 
         /**
-         * @name ngUi.uiDatePicker
+         * @name Ui.uiDatePicker
          * @description
          * Activates a DOM input element as a date picker element. It requires jQueryUI to be loaded into the page for
          * it to have any effect.
@@ -111,7 +111,7 @@
         }])
 
         /**
-         * @name ngUi.uiDraggable
+         * @name Ui.uiDraggable
          * @description
          * Activates a DOM element as a draggable element. It requires jQueryUI to be loaded into the page for
          * it to have any effect.
@@ -132,7 +132,7 @@
         }])
 
         /**
-         * @name ngUi.uiAccordion
+         * @name Ui.uiAccordion
          * @description
          * Activates a DOM element as an accordion element. It requires jQueryUI to be loaded into the page for
          * it to have any effect.
@@ -153,7 +153,7 @@
         })
 
         /**
-         * @name ngUi.uiDialog
+         * @name Ui.uiDialog
          * @requires $http
          * @requires $compile
          * @requires $rootScope
@@ -167,14 +167,14 @@
         .factory('uiDialog', ['$http', '$compile', '$rootScope', function($http, $compile, $rootScope) {
             return {
                 /**
-                 * @name ngUi.uiDialog#alert
-                 * @methodOf ngUi.uiDialog
+                 * @name Ui.uiDialog#open
+                 * @methodOf Ui.uiDialog
                  * @description
                  * Opens a dialog window that functions similarly to an alert.
                  * @param {string} templateUrl A URL for a template to populate the dialog.
                  * @param {Object} options A configuration object, currently there are no options to configure.
                  */
-                alert: function(templateUrl, options) {
+                open: function(templateUrl, options) {
                     $http.get(templateUrl).success(function(response) {
                         var scope = $rootScope.$new();
 
@@ -193,7 +193,7 @@
         }])
 
         /**
-         * @name ngUi.uiLoader
+         * @name Ui.uiLoader
          * @description
          * Hides a DOM element and shows it only when loading take place. The element is being shown whenever an AJAX
          * takes place or when a route change happens.

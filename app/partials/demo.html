@@ -19,7 +19,7 @@
                 <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent auctor accumsan
                     hendrerit. Nulla dictum dignissim iaculis. Mauris in eros diam. Duis auctor rhoncus massa at
                     commodo.</p>
-                <a class="btn-blue bottom-right">Connect Account</a>
+                <a href="" class="btn-blue bottom-right" data-ng-click="connect()">Connect Account</a>
 
                 <p class="bottom-left">Don't have a Google account? <a target="_blank" href="">Create one</a>
             </div>
@@ -41,12 +41,16 @@
                         <li class="settings-option">
                             <label for="font-type">Font</label>
                             <select style="width: 100px;" data-ui-chosen data-ng-model="user.fontFamily"
+                                    data-ui-disable-search="true"
+                                    data-ng-options="object for object in fontFamily"
                                     id="font-type"></select>
                         </li>
 
                         <li class="settings-option">
                             <label for="font-size">Size</label>
                             <select style="width: 100px;" data-ui-chosen data-ng-model="user.fontSize"
+                                    data-ui-disable-search="true"
+                                    data-ng-options="object for object in fontSize"
                                     id="font-size"></select>
                         </li>
 
