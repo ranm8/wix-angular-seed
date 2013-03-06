@@ -19,14 +19,43 @@
          *
          * Please note that this feature only works when HTML5 mode is enabled.
          */
-        .run(['$rootScope', '$location', '$route', 'sdk', function ($rootScope, $location, $route, sdk) {
+        .run(['$rootScope', '$location', '$route', 'sdk', 'queryParams', function ($rootScope, $location, $route, sdk, queryParams) {
             $rootScope.$watch(function () { return $location.path(); }, function (path) {
-                if (Object.keys($route.routes).indexOf(path) !== -1 && path !== '/') {
-                    console.log(path);
+//                if (Object.keys($route.routes).indexOf(path) !== -1 && path !== '/') {
 //                    sdk.pushState(path);
-                }
+//                }
             });
         }])
+
+        /**
+         * @name Wix.queryParams
+         * @requires $window
+         * @description
+         * Returns an object representation of the query string parameters. It's used instead of $location.search() because
+         * $location.search() return the query string only when HTML5 mode is enabled or when the query string parameters
+         * are after the hash (#). This service returns the true query string parameters: in the case when HTML5 mode is
+         * disabled it will be the query string before the hash (#).
+         *
+         * @example
+         *   When this is the URL: /route?hello=world#/?world=hello the queryParams object would look like this: { hello: 'world' }.
+         */
+        .provider('queryParams', function() {
+            this.$get = ['$window', function($window) {
+                var result = {},
+                    params,
+                    i;
+
+                if ($window.location.search) {
+                    params = $window.location.search.slice(1).split("&");
+
+                    for (i = 0; i < params.length; i = i + 1) {
+                        result[params[i].split("=")[0]] = unescape(params[i].split("=")[1]);
+                    }
+                }
+
+                return result;
+            }];
+        })
 
         /**
          * @name Wix.sdk
@@ -429,19 +458,21 @@
          * @example
          */
         .provider('wixTransformer', function() {
-            this.$get = ['$location', 'urlEncoder', function($location, urlEncoder) {
+            this.$get = ['queryParams', 'urlEncoder', function(queryParams, urlEncoder) {
                 /**
                  * Returns an object with the wix required parameters.
                  *
                  * @returns {Object}
                  */
                 function params() {
-                    var query = $location.search();
-
                     return {
-                        instance: query.instance || null,
-                        compId: query.compId || null,
-                        origCompId: query.origCompId || null
+                        'section-url': queryParams['section-url'] || null,
+                        cacheKiller: queryParams.cacheKiller || null,
+                        instance: queryParams.instance || null,
+                        target: queryParams.target || null,
+                        width: queryParams.width || null,
+                        compId: queryParams.compId || null,
+                        origCompId: queryParams.origCompId || null
                     };
                 }
 

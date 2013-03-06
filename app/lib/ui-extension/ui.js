@@ -39,8 +39,18 @@
         /**
          * @name Ui.uiChosen
          * @description
-         * Activates a DOM select element as a Chosen element. Requires the Chosen plugin to be loaded into the page
-         * for any effect to take place.
+         * Activates a DOM select element as a Chosen element. It requires Chosen plugin to work but it will not throw
+         * any exceptions if it's not available. See @link { http://harvesthq.github.com/chosen } for more information.
+         *
+         * It can be configured with the following HTML attributes:
+         *   ui-disable-search: Disables the search option.
+         *   ui-allow-single-deselect: Allows a single deselect.
+         *
+         * @example
+         *   <select data-ui-chosen data-ng-model="model"
+         *           data-ui-disable-search="true"
+         *           data-ng-options="object for object in array">
+         *   </select>
          */
         .directive('uiChosen', [function() {
             return {
