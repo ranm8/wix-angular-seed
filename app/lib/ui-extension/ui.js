@@ -144,15 +144,10 @@
          * for more information.
          *
          * It can be configured with the following HTML attributes:
-         *   ui-alt-format: The dateFormat to be used for the altField option. This allows one date format to be shown
-         *     to the user for selection purposes, while a different format is actually sent behind the scenes. For a
-         *     full list of the possible formats see the formatDate function.
          *   ui-auto-size: Set to true to automatically resize the input field to accommodate dates in the current
          *     dateFormat.
-         *   ui-button-image: The URL for the popup button image. If set, the ui-button-text option becomes the alt value
-         *     and is not directly displayed.
-         *   ui-button-image-only: Whether the button image should be rendered by itself instead of inside a button
-         *     element.
+         *   ui-button-image: The URL for the popup button image. If set, the ui-button-text option becomes the alt
+         *     value and is not directly displayed.
          *   ui-button-text: The text to display on the trigger button. Use in conjunction with the ui-show-on option
          *     set to "button" or "both".
          *   ui-change-month: Whether the month should be rendered as a dropdown instead of text.
@@ -160,29 +155,19 @@
          *     option to control which years are made available for selection.
          *   ui-close-text: The text to display for the close link. Use the showButtonPanel option to display this
          *     button.
-         *   ui-constrain-input: When true, entry in the input field is constrained to those characters allowed by the
-         *     current ui-date-format option.
          *   ui-current-text: The text to display for the current day link. Use the ui-show-button-panel option to
          *     display this button.
          *   ui-date-format: The format for parsed and displayed dates.
          *   ui-day-names: The list of long day names, starting from Sunday, for use as requested via the ui-date-format
          *     option.
-         *   ui-day-names-min: The list of minimised day names, starting from Sunday, for use as column headers within
-         *     the datepicker.
-         *   ui-day-names-short: The list of abbreviated day names, starting from Sunday, for use as requested via the
-         *     dateFormat option.
          *   ui-duration: Control the speed at which the datepicker appears, it may be a time in milliseconds or a
          *     string representing one of the three predefined speeds ("slow", "normal", "fast").
          *   ui-first-day: Set the first day of the week: Sunday is 0, Monday is 1, etc.
          *   ui-goto-current: When true, the current day link moves to the currently selected date instead of today.
-         *   ui-hide-if-no-prev-next: Normally the previous and next links are disabled when not applicable
-         *     (see the minDate and maxDate options). You can hide them altogether by setting this attribute to true.
          *   ui-is-rtl: Whether the current language is drawn from right to left.
          *   ui-max-date: The maximum selectable date. When set to null, there is no maximum.
          *   ui-min-date: The minimum selectable date. When set to null, there is no minimum.
          *   ui-month-names: The list of full month names, for use as requested via the ui-date-format option.
-         *   ui-month-names-short: The list of abbreviated month names, as used in the month header on each datepicker
-         *     and as requested via the ui-date-format option.
          *   ui-year-range: The range of years displayed in the year drop-down: either relative to today's year
          *     ("-nn:+nn"), relative to the currently selected year ("c-nn:c+nn"), absolute ("nnnn:nnnn"), or
          *     combinations of these formats ("nnnn:-nn"). Note that this option only affects what appears in the
@@ -202,29 +187,22 @@
                     }
 
                     elm.datepicker({
-                        altFormat: attr.uiAltFormat,
                         autoSize: scope.$eval(attr.uiAutoSize),
                         buttonImage: attr.uiButtonImage,
-                        buttonImageOnly: scope.$eval(attr.uiButtonImageOnly),
                         buttonText: attr.uiButtonText,
                         changeMonth: scope.$eval(attr.uiChangeMonth),
                         changeYear: scope.$eval(attr.uiChangeYear),
                         closeText: attr.uiCloseText,
-                        constrainInput: scope.$eval(attr.uiConstrainInput),
                         currentText: attr.uiCurrentText,
                         dateFormat: attr.uiDateFormat,
                         dayNames: scope.$eval(attr.uiDayNames),
-                        dayNamesMin: scope.$eval(attr.uiDayNamesMin),
-                        dayNamesShort: scope.$eval(attr.uiDayNamesShort),
                         duration: attr.uiDuration,
                         firstDay: scope.$eval(attr.uiFirstDay),
                         gotoCurrent: scope.$eval(attr.uiGotoCurrent),
-                        hideIfNoPrevNext: scope.$eval(attr.uiHideIfNoPrevNext),
                         isRTL: scope.$eval(attr.uiIsRtl),
                         maxDate: attr.uiMaxDate,
                         minDate: attr.uiMinDate,
                         monthNames: scope.$eval(attr.uiMonthNames),
-                        monthNamesShort: scope.$eval(attr.uiMonthNamesShort),
                         yearRange: attr.uiYearRange,
                         onSelect: function(date) {
                             ctrl.$setViewValue(date);
