@@ -78,6 +78,12 @@
                         return;
                     }
 
+//                    elm.on('colorChanged', function(event) {
+//                        scope.$apply(function() {
+//                            ctrl.$setViewValue(event.selected_color);
+//                        });
+//                    });
+
                     elm.ColorPicker();
                 }
             };

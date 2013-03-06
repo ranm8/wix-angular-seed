@@ -16,10 +16,14 @@
         /**
          * Pushes URL changes to Wix's editor. The next time a user visits that URL the same page of your application
          * will be displayed (page applications only).
+         *
+         * Please note that this feature only works when HTML5 mode is enabled.
          */
-        .run(['$rootScope', '$location', '$document', 'sdk', function ($rootScope, $location, $document, sdk) {
+        .run(['$rootScope', '$location', '$route', 'sdk', function ($rootScope, $location, $route, sdk) {
             $rootScope.$watch(function () { return $location.path(); }, function (path) {
-                sdk.pushState(path);
+                if (Object.keys($route.routes).indexOf(path) !== -1 && path !== '/') {
+//                    sdk.pushState(path);
+                }
             });
         }])
 
@@ -211,30 +215,25 @@
          * Generates routes to a backend from a predefined list of routes that can be defined during the config() phase.
          *
          * @example
-           This example shows how to define a list of backend endpoints during the config() phase and generating URLs
-           to the backend in an application.
-
-             window.angular.module('Base', [])
-                .config(['routerProvider', function(routerProvider) {
-                    routerProvider
-                        .endpoint('user', {
-                            url: 'data/user.json'
-                        })
-                        .endpoint('hello', {
-                            url: 'data/world.json'
-                        })
-                        .endpoint('world', {
-                            url: 'data/hello.json'
-                        });
-                }])
-                .run(['router', function(router) {
-                    router.path('hello'); // === 'data/world.json'
-                }]);
-}(window));
-
-
-
-
+         *   This example shows how to define a list of backend endpoints during the config() phase and generating URLs
+         *   to the backend in an application.
+         *     window.angular.module('Base', [])
+         *       .config(['routerProvider', function(routerProvider) {
+         *         routerProvider
+         *           .endpoint('user', {
+         *             url: 'data/user.json'
+         *           })
+         *           .endpoint('hello', {
+         *             url: 'data/world.json'
+         *           })
+         *           .endpoint('world', {
+         *             url: 'data/hello.json'
+         *           });
+         *       }])
+         *       .run(['router', function(router) {
+         *         router.path('hello'); // === 'data/world.json'
+         *       }]);
+         *     }(window));
          */
         .provider('router', function() {
             var endpoints = {},
