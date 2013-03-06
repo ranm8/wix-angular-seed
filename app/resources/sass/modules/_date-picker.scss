@@ -1,3 +1,10 @@
+/*
+Date picker implementation.
+
+Automatically imports with the date picker module.
+See <a href="#">Color picker module</a>
+*/
+
 %date-picker-input {
   @include inline-block(65px,23px,auto,middle,23px);
   margin: 0;

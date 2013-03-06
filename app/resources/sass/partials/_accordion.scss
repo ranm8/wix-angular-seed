@@ -1,6 +1,6 @@
 .accordion-window > div {
   @extend .box-style;
-  margin: $padding 0 0; }
+  margin: $settingsPadding 0 0; }
 
 .accordion-header {
   @include inline-block(100%,20px,auto,top,20px);
@@ -24,7 +24,7 @@
 .accordion-content {
   .settings-list {
     font-size: 0;
-    padding: $padding / 2 $padding / 2 0;
+    padding: $settingsPadding / 2 $settingsPadding / 2 0;
 
     .settings-option {
       @include inline-block(50%,50px,auto,auto,50px);
