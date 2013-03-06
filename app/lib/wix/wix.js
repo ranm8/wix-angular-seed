@@ -19,9 +19,10 @@
          *
          * Please note that this feature only works when HTML5 mode is enabled.
          */
-        .run(['$rootScope', '$location', '$route', 'sdk', 'queryParams', function ($rootScope, $location, $route, sdk, queryParams) {
+        .run(['$rootScope', '$location', '$route', 'sdk', function ($rootScope, $location, $route, sdk) {
             $rootScope.$watch(function () { return $location.path(); }, function (path) {
 //                if (Object.keys($route.routes).indexOf(path) !== -1 && path !== '/') {
+//                    console.log(path);
 //                    sdk.pushState(path);
 //                }
             });

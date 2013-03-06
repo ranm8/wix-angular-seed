@@ -329,7 +329,7 @@
                     selected_color: selectedColor.hex
                 }
 
-                $(document).trigger('colorChanged', data);
+                this.$el.trigger('colorChanged', data);
 
                 return false;
             }.bind(this));
