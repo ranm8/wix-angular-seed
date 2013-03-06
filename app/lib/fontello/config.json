@@ -1,0 +1,18 @@
+{
+  "name": "",
+  "glyphs": [
+    {
+      "search": [
+        "calendar",
+        "date"
+      ],
+      "code": 128197,
+      "from": 128197,
+      "uid": "531bc468eecbb8867d822f1c11f1e039",
+      "css": "calendar",
+      "orig_css": "calendar",
+      "orig_code": 128197,
+      "src": "fontawesome"
+    }
+  ]
+}
