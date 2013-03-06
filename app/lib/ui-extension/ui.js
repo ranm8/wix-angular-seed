@@ -304,7 +304,7 @@
          */
         .directive('uiAccordion', function() {
             return {
-                link: function(scope, elm, attr) {
+                link: function(scope, elm, attr, ctrl) {
                     if (!elm.accordion) {
                         return;
                     }
@@ -327,45 +327,104 @@
 
         /**
          * @name Ui.uiDialog
+         * @description
+         * Makes a DOM div element to work as a dialog element. It requires jQueryUI dialog component to work but it
+         * will not throw any exceptions if it's not available. See @link { http://jqueryui.com/dialog } for more
+         * information.
+         *
+         * It can be configured with the following HTML attributes:
+         *   ui-auto-open: If set to true, the dialog will automatically open upon initialization. If false, the dialog
+         *     will stay hidden until the open() method is called.
+         *   ui-close-on-escape: Specifies whether the dialog should close when it has focus and the user presses the
+         *     esacpe (ESC) key.
+         *   ui-close-text: Specifies the text for the close button. Note that the close text is visibly hidden when
+         *     using a standard theme.
+         *   ui-dialog-class: The specified class name(s) will be added to the dialog, for additional theming.
+         *   ui-draggable: If set to true, the dialog will be draggable by the title bar. Requires the jQuery UI
+         *     Draggable widget to be included.
+         *   ui-height: The height of the dialog.
+         *   ui-max-height: The maximum height to which the dialog can be resized, in pixels.
+         *   ui-max-width: The maximum width to which the dialog can be resized, in pixels.
+         *   ui-min-height: The minimum height to which the dialog can be resized, in pixels.
+         *   ui-min-width: The minimum width to which the dialog can be resized, in pixels.
+         *   ui-modal: If set to true, the dialog will have modal behavior; other items on the page will be disabled,
+         *     i.e., cannot be interacted with. Modal dialogs create an overlay below the dialog but above other page
+         *     elements.
+         *   ui-resizeable: If set to true, the dialog will be resizable. Requires the jQuery UI Resizable widget to be
+         *     included.
+         *   ui-title: Specifies the title of the dialog. If the value is null, the title attribute on the dialog
+         *     source element will be used.
+         *   ui-width: The width of the dialog, in pixels.
+         *
+         * @example
+         *   The following HTML tag would be turned into a dialog element that would show itself as soon as it's
+         *   compiled:
+         *   <div title="Dialog!" data-ui-dialog>
+         *       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent auctor accumsan hendrerit. Nulla
+         *       dictum dignissim iaculis. Mauris in eros diam. Duis auctor rhoncus massa at commodo.
+         *   </div>
+         */
+        .directive('uiDialog', function() {
+            return {
+                link: function(scope, elm, attr, ctrl) {
+                    if (!elm.dialog) {
+                        return;
+                    }
+
+                    function toBool(input) {
+                        if (typeof input === 'string') {
+                            return input.toLowerCase() === 'true';
+                        }
+
+                        return !!input;
+                    }
+
+                    elm.dialog({
+                        autoOpen: toBool(attr.uiAutoOpen),
+                        closeOnEscape: toBool(attr.uiCloseOnEscape),
+                        closeText: attr.uiCloseText,
+                        dialogClass: attr.uiDialogClass,
+                        draggable: toBool(attr.uiDraggable),
+                        height: parseInt(attr.uiHeight),
+                        MaxHeight: parseInt(attr.uiMaxHeight),
+                        MaxWidth: parseInt(attr.uiMaxWidth),
+                        MinHeight: parseInt(attr.uiMinHeight),
+                        MinWidth: parseInt(attr.uiMinWidth),
+                        modal: toBool(attr.uiModal),
+                        resizable: toBool(attr.uiResizeable),
+                        title: attr.uiTitle,
+                        width: parseInt(attr.uiWidth)
+                    });
+                }
+            };
+        })
+
+        /**
+         * @name Ui.partialLoader
          * @requires $http
          * @requires $compile
          * @requires $rootScope
          * @description
-         * Provides an API to open jQueryUI dialog modals. Each method requires a partial URL. That partial will then
-         * be fetched, compiled and displayed as the dialog. You can have an ng-controller tag on that partial to put
-         * controller logic relevant for that dialog.
-         *
-         * @example
+         * Allows the controller to dynamically load a partial and compile it. Any directives on that partial will go
+         * off. Useful for opening a new dialog window.
          */
-        .factory('uiDialog', ['$http', '$compile', '$rootScope', function($http, $compile, $rootScope) {
-            return {
-                /**
-                 * @name Ui.uiDialog#open
-                 * @methodOf Ui.uiDialog
-                 * @description
-                 * Opens a dialog window that functions similarly to an alert.
-                 * @param {string} templateUrl A URL for a template to populate the dialog.
-                 * @param {Object} options A configuration object, currently there are no options to configure.
-                 */
-                open: function(templateUrl, options) {
-                    options = options || {};
+        .provider('partialLoader', function() {
+            this.$get = ['$http', '$compile', '$rootScope', function($http, $compile, $rootScope) {
+                return {
+                    load: function(templateUrl, options) {
+                        options = options || {};
 
-                    $http.get(templateUrl).success(function(response) {
-                        var scope = $rootScope.$new();
+                        $http.get(templateUrl).success(function(response) {
+                            var scope = $rootScope.$new();
 
-                        $compile(response)(scope, function(elm) {
-                            elm.dialog({
-                                modal: true
-                            });
+                            $compile(response)(scope, function(elm) {
 
-                            elm.on('dialogclose', function() {
-                                elm.remove();
                             });
                         });
-                    });
-                }
-            };
-        }])
+                    }
+                };
+            }];
+        })
 
         /**
          * @name Ui.uiLoader

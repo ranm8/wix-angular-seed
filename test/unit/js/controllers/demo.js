@@ -20,8 +20,8 @@
                     refreshCurrentApp: jasmine.createSpy('refreshCurrentApp')
                 }
             },
-            uiDialog = {
-                open: jasmine.createSpy('open')
+            partialLoader = {
+                load: jasmine.createSpy('open')
             },
             ctrl,
             scope,
@@ -31,7 +31,7 @@
             httpBackend = $httpBackend;
 
             scope = $rootScope.$new();
-            ctrl = new DemoCtrl(scope ,$http , router, sdk, uiDialog, user);
+            ctrl = new DemoCtrl(scope ,$http , router, sdk, partialLoader, user);
 
             scope.$digest();
         }));
@@ -48,7 +48,7 @@
         it('should open a dialog when connect() is called', function() {
             scope.connect();
 
-            expect(uiDialog.open).toHaveBeenCalled();
+            expect(partialLoader.load).toHaveBeenCalled();
         });
 
         it('should watch user model changes and fire http requests', function() {
