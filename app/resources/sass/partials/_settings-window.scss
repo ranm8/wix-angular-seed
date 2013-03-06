@@ -1,17 +1,15 @@
-$padding: 20px;
-
 .settings-window {
   @include box-sizing("border-box");
   background: $wixBright;
-  width: 620px;
-  padding: $padding;
+  width: $settingsWindowWidth;
+  padding: $settingsPadding;
   position: relative;
 }
 .box-style {
   border: 1px solid $wixGray;
   border-radius: 8px;
   background: #fff;
-  padding: $padding/2;
+  padding: $settingsPadding/2;
 }
 .ajax-loader {
   position: absolute;
@@ -33,7 +31,7 @@ $padding: 20px;
 
   .logo {
     border-right: 1px solid #e7e7e7;
-    padding: 0 $padding;
+    padding: 0 $settingsPadding;
     a:before {
       content: " ";
       display: inline-block;
@@ -43,17 +41,17 @@ $padding: 20px;
   .connect {
     @include box-sizing("border-box");
     vertical-align: top;
-    padding: $padding/2 $padding;
+    padding: $settingsPadding/2 $settingsPadding;
     position: relative;
-    width: 440px;
+    width: $connectSectionWidth;
 
     .bottom-left {
       position: absolute;
-      bottom: $padding/2;
-      left: $padding; }
+      bottom: $settingsPadding/2;
+      left: $settingsPadding; }
     .bottom-right {
       position: absolute;
-      right: $padding;
-      bottom: $padding/2; }
+      right: $settingsPadding;
+      bottom: $settingsPadding/2; }
   }
 }

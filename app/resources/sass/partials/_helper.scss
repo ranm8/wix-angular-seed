@@ -15,3 +15,11 @@ $wixBlue: #0099ff;
 $wixBright: #f6f6f6;
 $wixGray: #c5c5c5;
 $wixDark: #3a3a3a;
+
+// Settings window variables
+$settingsPadding: 20px;
+$settingsWindowWidth: 620px;
+$topPaneWidth: $settingsWindowWidth - ($settingsPadding * 3);
+$logoWidth: image-width("demo/logo.png") + 10px;
+$logoSectionWidth: $logoWidth + ($settingsPadding * 2);
+$connectSectionWidth: $topPaneWidth - $logoSectionWidth;
