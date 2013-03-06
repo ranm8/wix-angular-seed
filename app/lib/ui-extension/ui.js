@@ -195,6 +195,7 @@
                     elm.datepicker({
                         autoSize: scope.$eval(attr.uiAutoSize),
                         buttonImage: attr.uiButtonImage,
+                        buttonImageOnly: scope.$eval(attr.uiButtonImageOnly),
                         buttonText: attr.uiButtonText,
                         changeMonth: scope.$eval(attr.uiChangeMonth),
                         changeYear: scope.$eval(attr.uiChangeYear),
@@ -209,6 +210,7 @@
                         maxDate: attr.uiMaxDate,
                         minDate: attr.uiMinDate,
                         monthNames: scope.$eval(attr.uiMonthNames),
+                        showOn: attr.uiShowOn,
                         yearRange: attr.uiYearRange,
                         onSelect: function(date) {
                             ctrl.$setViewValue(date);

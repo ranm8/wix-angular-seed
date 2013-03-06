@@ -75,7 +75,9 @@
                         <li class="settings-option full-width">
                             <label class="colorPicker-label" for="border-color">Your birth date</label>
 
-                            <input type="text" data-ui-datepicker data-ng-model="user.birthDate">
+                            <input type="text" data-ui-datepicker data-ui-button-image="/lib/fontello/font.fontello.svg"
+                                   data-ui-button-image-only="true" data-ui-show-on="button"
+                                   data-ng-model="user.birthDate">
                         </li>
 
                     </ul>
@@ -98,10 +100,11 @@
 
                         <li class="settings-option">
                             <input id="opacity3" type="checkbox" class="wix-checkbox"
-                                   data-ng-model="user.searchBackground" />
+                                   data-ng-model="user.searchBackground"/>
                             <label for="opacity3">Opacity</label>
 
-                            <div data-ui-slider data-ui-min="1" data-ui-max="10" data-ng-model="user.searchBackgroundOpacity"
+                            <div data-ui-slider data-ui-min="1" data-ui-max="10"
+                                 data-ng-model="user.searchBackgroundOpacity"
                                  data-ng-disabled="!user.searchBackground"></div>
 
                             <span class="opacity-count">{{ user.searchBackgroundOpacity }}</span>
@@ -115,10 +118,11 @@
 
                         <li class="settings-option">
                             <input id="opacity4" type="checkbox" class="wix-checkbox"
-                                   data-ng-model="user.searchBorder" />
+                                   data-ng-model="user.searchBorder"/>
                             <label for="opacity4">Opacity</label>
 
-                            <div data-ui-slider data-ui-min="1" data-ui-max="10" data-ng-model="user.searchBorderOpacity"
+                            <div data-ui-slider data-ui-min="1" data-ui-max="10"
+                                 data-ng-model="user.searchBorderOpacity"
                                  data-ng-disabled="!user.searchBorder"></div>
 
                             <span class="opacity-count">{{ user.searchBorderOpacity }}</span>
