@@ -7,7 +7,7 @@
     /**
      * Simple demo control that can be used as a starting place.
      */
-    var DemoCtrl = function($scope, $http, router, sdk, uiDialog, user) {
+    var DemoCtrl = function($scope, $http, router, sdk, partialLoader, user) {
         /**
          * User model. Holds data on the active user.
          */
@@ -27,7 +27,7 @@
          * open a dialog when a user activates the connect() method.
          */
         $scope.connect = function() {
-            uiDialog.open('partials/dialog.html');
+            partialLoader.load('partials/dialog.html');
         };
 
         /**
@@ -66,7 +66,7 @@
     /**
      * Concrete injections
      */
-    DemoCtrl.$inject = ['$scope', '$http', 'router', 'sdk', 'uiDialog', 'user'];
+    DemoCtrl.$inject = ['$scope', '$http', 'router', 'sdk', 'partialLoader', 'user'];
 
     /**
      * Import to global scope

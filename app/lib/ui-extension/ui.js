@@ -51,8 +51,8 @@
                     }
 
                     elm.chosen({
-                        disable_search: attr.uiDisableSearch === 'true',
-                        allow_single_deselect: attr.uiAllowSingleDeselect === 'true'
+                        disable_search: scope.$eval(attr.uiDisableSearch),
+                        allow_single_deselect: scope.$eval(attr.uiAllowSingleDeselect)
                     });
 
                     ctrl.$render = function() {
@@ -87,13 +87,17 @@
          * @name Ui.uiSlider
          * @description
          * Makes a DOM div element to work as a slider element. It requires jQueryUI slider component to work but it
-         * will not throw any exceptions if it's not available.
+         * will not throw any exceptions if it's not available. See @link { http://jqueryui.com/slider } for more
+         * information.
          *
          * It can be configured with the following HTML attributes:
-         *   ui-range: whether the slider represents a range.
-         *   min: the minimum value of the slider.
-         *   max: the maximum value of the slider.
-         *   disabled: controls whether the slider should be disabled.
+         *   ui-min: The minimum value of the slider.
+         *   ui-max: The maximum value of the slider.
+         *   ui-orientation: Determines whether the slider handles move horizontally (min on left, max on right) or
+         *     vertically (min on bottom, max on top). Possible values: "horizontal", "vertical".
+         *   ui-step: Determines the size or amount of each interval or step the slider takes between the min and max.
+         *     The full specified value range of the slider (max - min) should be evenly divisible by the step.
+         *   disabled: Controls whether the element should be disabled.
          *
          * @example
          *   The following HTML tag would be turned into a slider element:
@@ -123,9 +127,10 @@
                     });
 
                     elm.slider({
-                        range: attr.uiRange,
-                        min: parseInt(attr.min),
-                        max: parseInt(attr.max)
+                        min: scope.$eval(attr.uiMin),
+                        max: scope.$eval(attr.uiMax),
+                        orientation: attr.uiOrientation,
+                        step: scope.$eval(attr.uiStep)
                     });
                 }
             };
@@ -135,12 +140,49 @@
          * @name Ui.uiDatePicker
          * @description
          * Makes a DOM input element with type text to work as a date picker element. It requires jQueryUI datepicker
-         * component to work but it will not throw any exceptions if it's not available.
+         * component to work but it will not throw any exceptions if it's not available. See @link { http://jqueryui.com/datepicker }
+         * for more information.
          *
          * It can be configured with the following HTML attributes:
-         *   ui-change-month: whether the month should be rendered as a dropdown instead of text.
-         *   ui-change-year: whether the year should be rendered as a dropdown instead of text. Use the ui-year-range
+         *   ui-alt-format: The dateFormat to be used for the altField option. This allows one date format to be shown
+         *     to the user for selection purposes, while a different format is actually sent behind the scenes. For a
+         *     full list of the possible formats see the formatDate function.
+         *   ui-auto-size: Set to true to automatically resize the input field to accommodate dates in the current
+         *     dateFormat.
+         *   ui-button-image: The URL for the popup button image. If set, the ui-button-text option becomes the alt value
+         *     and is not directly displayed.
+         *   ui-button-image-only: Whether the button image should be rendered by itself instead of inside a button
+         *     element.
+         *   ui-button-text: The text to display on the trigger button. Use in conjunction with the ui-show-on option
+         *     set to "button" or "both".
+         *   ui-change-month: Whether the month should be rendered as a dropdown instead of text.
+         *   ui-change-year: Whether the year should be rendered as a dropdown instead of text. Use the ui-year-range
          *     option to control which years are made available for selection.
+         *   ui-close-text: The text to display for the close link. Use the showButtonPanel option to display this
+         *     button.
+         *   ui-constrain-input: When true, entry in the input field is constrained to those characters allowed by the
+         *     current ui-date-format option.
+         *   ui-current-text: The text to display for the current day link. Use the ui-show-button-panel option to
+         *     display this button.
+         *   ui-date-format: The format for parsed and displayed dates.
+         *   ui-day-names: The list of long day names, starting from Sunday, for use as requested via the ui-date-format
+         *     option.
+         *   ui-day-names-min: The list of minimised day names, starting from Sunday, for use as column headers within
+         *     the datepicker.
+         *   ui-day-names-short: The list of abbreviated day names, starting from Sunday, for use as requested via the
+         *     dateFormat option.
+         *   ui-duration: Control the speed at which the datepicker appears, it may be a time in milliseconds or a
+         *     string representing one of the three predefined speeds ("slow", "normal", "fast").
+         *   ui-first-day: Set the first day of the week: Sunday is 0, Monday is 1, etc.
+         *   ui-goto-current: When true, the current day link moves to the currently selected date instead of today.
+         *   ui-hide-if-no-prev-next: Normally the previous and next links are disabled when not applicable
+         *     (see the minDate and maxDate options). You can hide them altogether by setting this attribute to true.
+         *   ui-is-rtl: Whether the current language is drawn from right to left.
+         *   ui-max-date: The maximum selectable date. When set to null, there is no maximum.
+         *   ui-min-date: The minimum selectable date. When set to null, there is no minimum.
+         *   ui-month-names: The list of full month names, for use as requested via the ui-date-format option.
+         *   ui-month-names-short: The list of abbreviated month names, as used in the month header on each datepicker
+         *     and as requested via the ui-date-format option.
          *   ui-year-range: The range of years displayed in the year drop-down: either relative to today's year
          *     ("-nn:+nn"), relative to the currently selected year ("c-nn:c+nn"), absolute ("nnnn:nnnn"), or
          *     combinations of these formats ("nnnn:-nn"). Note that this option only affects what appears in the
@@ -159,17 +201,30 @@
                         return;
                     }
 
-                    function toBool(input) {
-                        if (typeof input === 'string') {
-                            return input.toLowerCase() === 'true';
-                        }
-
-                        return !!input;
-                    }
-
                     elm.datepicker({
-                        changeMonth: toBool(attr.uiChangeMonth),
-                        changeYear: toBool(attr.uiChangeYear),
+                        altFormat: attr.uiAltFormat,
+                        autoSize: scope.$eval(attr.uiAutoSize),
+                        buttonImage: attr.uiButtonImage,
+                        buttonImageOnly: scope.$eval(attr.uiButtonImageOnly),
+                        buttonText: attr.uiButtonText,
+                        changeMonth: scope.$eval(attr.uiChangeMonth),
+                        changeYear: scope.$eval(attr.uiChangeYear),
+                        closeText: attr.uiCloseText,
+                        constrainInput: scope.$eval(attr.uiConstrainInput),
+                        currentText: attr.uiCurrentText,
+                        dateFormat: attr.uiDateFormat,
+                        dayNames: scope.$eval(attr.uiDayNames),
+                        dayNamesMin: scope.$eval(attr.uiDayNamesMin),
+                        dayNamesShort: scope.$eval(attr.uiDayNamesShort),
+                        duration: attr.uiDuration,
+                        firstDay: scope.$eval(attr.uiFirstDay),
+                        gotoCurrent: scope.$eval(attr.uiGotoCurrent),
+                        hideIfNoPrevNext: scope.$eval(attr.uiHideIfNoPrevNext),
+                        isRTL: scope.$eval(attr.uiIsRtl),
+                        maxDate: attr.uiMaxDate,
+                        minDate: attr.uiMinDate,
+                        monthNames: scope.$eval(attr.uiMonthNames),
+                        monthNamesShort: scope.$eval(attr.uiMonthNamesShort),
                         yearRange: attr.uiYearRange,
                         onSelect: function(date) {
                             ctrl.$setViewValue(date);
@@ -182,8 +237,20 @@
         /**
          * @name Ui.uiDraggable
          * @description
-         * Activates a DOM element as a draggable element. It requires jQueryUI to be loaded into the page for
-         * it to have any effect.
+         * Makes a DOM element of any type to work as a draggable element. It requires jQueryUI draggable component to
+         * work but it will not throw any exceptions if it's not available. See @link { http://jqueryui.com/draggable }
+         * for more information.
+         *
+         * It can be configured with the following HTML attributes:
+         *   ui-axis: Constrains dragging to either the horizontal (x) or vertical (y) axis. Possible values: "x", "y".
+         *   ui-cursor: The CSS cursor during the drag operation.
+         *   ui-delay: Time in milliseconds after mousedown until dragging should start. This option can be used to
+         *     prevent unwanted drags when clicking on an element.
+         *   disabled: Controls whether the element should be disabled.
+         *
+         * @example
+         *   The following HTML tag would be turned into a draggable element:
+         *     <div ui-draggable ui-axis="x" ui-delay="100"></div>
          */
         .directive('uiDraggable', [function() {
             return {
@@ -192,9 +259,14 @@
                         return;
                     }
 
+                    scope.$watch(function() { return attr.disabled; }, function(value) {
+                        elm.draggable('option', 'disabled', value);
+                    });
+
                     elm.draggable({
                         axis: attr.uiAxis,
-                        delay: parseInt(attr.uiDelay)
+                        cursor: attr.uiCursor,
+                        delay: scope.$eval(attr.uiDelay)
                     });
                 }
             };
@@ -203,17 +275,41 @@
         /**
          * @name Ui.uiAccordion
          * @description
-         * Activates a DOM element as an accordion element. It requires jQueryUI to be loaded into the page for
-         * it to have any effect.
+         * Makes a DOM div element to work as an accordion element. It requires jQueryUI accordion component to work
+         * but it will not throw any exceptions if it's not available. See @link { http://jqueryui.com/accordion } for
+         * more information.
+         *
+         * It can be configured with the following HTML attributes:
+         *   ui-active: Which panel is currently open.
+         *   ui-animate: If and how to animate changing panels.
+         *   ui-collapsible: Whether all the sections can be closed at once. Allows collapsing the active section.
+         *   ui-event: The event that accordion headers will react to in order to activate the associated panel.
+         *     Multiple events can be specificed, separated by a space.
+         *   ui-header: Selector for the header element, applied via .find() on the main accordion element. Content
+         *     panels must be the sibling immedately after their associated headers.
+         *   ui-height-style: Controls the height of the accordion and each panel.
+         *   disabled: Controls whether the element should be disabled.
+         *
+         * @example
+         *   The following HTML tag would be turned into a draggable element:
+         *     <div data-ui-accordion data-ui-height-style="auto" data-ui-header="div > h2"></div>
          */
         .directive('uiAccordion', function() {
             return {
-                link: function(scope, elm, attr) {
+                link: function(scope, elm, attr, ctrl) {
                     if (!elm.accordion) {
                         return;
                     }
 
+                    scope.$watch(function() { return attr.disabled; }, function(value) {
+                        elm.accordion('option', 'disabled', value);
+                    });
+
                     elm.accordion({
+                        active: attr.uiAction,
+                        animate: attr.uiAnimate,
+                        collapsible: attr.uicollapsible,
+                        event: attr.uiEvent,
                         header: attr.uiHeader,
                         heightStyle: attr.uiHeightStyle
                     });
@@ -223,54 +319,109 @@
 
         /**
          * @name Ui.uiDialog
+         * @description
+         * Makes a DOM div element to work as a dialog element. It requires jQueryUI dialog component to work but it
+         * will not throw any exceptions if it's not available. See @link { http://jqueryui.com/dialog } for more
+         * information.
+         *
+         * It can be configured with the following HTML attributes:
+         *   ui-auto-open: If set to true, the dialog will automatically open upon initialization. If false, the dialog
+         *     will stay hidden until the open() method is called.
+         *   ui-close-on-escape: Specifies whether the dialog should close when it has focus and the user presses the
+         *     esacpe (ESC) key.
+         *   ui-close-text: Specifies the text for the close button. Note that the close text is visibly hidden when
+         *     using a standard theme.
+         *   ui-dialog-class: The specified class name(s) will be added to the dialog, for additional theming.
+         *   ui-draggable: If set to true, the dialog will be draggable by the title bar. Requires the jQuery UI
+         *     Draggable widget to be included.
+         *   ui-height: The height of the dialog.
+         *   ui-max-height: The maximum height to which the dialog can be resized, in pixels.
+         *   ui-max-width: The maximum width to which the dialog can be resized, in pixels.
+         *   ui-min-height: The minimum height to which the dialog can be resized, in pixels.
+         *   ui-min-width: The minimum width to which the dialog can be resized, in pixels.
+         *   ui-modal: If set to true, the dialog will have modal behavior; other items on the page will be disabled,
+         *     i.e., cannot be interacted with. Modal dialogs create an overlay below the dialog but above other page
+         *     elements.
+         *   ui-resizeable: If set to true, the dialog will be resizable. Requires the jQuery UI Resizable widget to be
+         *     included.
+         *   ui-title: Specifies the title of the dialog. If the value is null, the title attribute on the dialog
+         *     source element will be used.
+         *   ui-width: The width of the dialog, in pixels.
+         *
+         * @example
+         *   The following HTML tag would be turned into a dialog element that would show itself as soon as it's
+         *   compiled:
+         *   <div title="Dialog!" data-ui-dialog>
+         *       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent auctor accumsan hendrerit. Nulla
+         *       dictum dignissim iaculis. Mauris in eros diam. Duis auctor rhoncus massa at commodo.
+         *   </div>
+         */
+        .directive('uiDialog', function() {
+            return {
+                link: function(scope, elm, attr, ctrl) {
+                    if (!elm.dialog) {
+                        return;
+                    }
+
+                    elm.dialog({
+                        autoOpen: scope.$eval(attr.uiAutoOpen),
+                        closeOnEscape: scope.$eval(attr.uiCloseOnEscape),
+                        closeText: attr.uiCloseText,
+                        dialogClass: attr.uiDialogClass,
+                        draggable: scope.$eval(attr.uiDraggable),
+                        height: scope.$eval(attr.uiHeight),
+                        MaxHeight: scope.$eval(attr.uiMaxHeight),
+                        MaxWidth: scope.$eval(attr.uiMaxWidth),
+                        MinHeight: scope.$eval(attr.uiMinHeight),
+                        MinWidth: scope.$eval(attr.uiMinWidth),
+                        modal: scope.$eval(attr.uiModal),
+                        resizable: scope.$eval(attr.uiResizeable),
+                        title: attr.uiTitle,
+                        width: scope.$eval(attr.uiWidth)
+                    });
+                }
+            };
+        })
+
+        /**
+         * @name Ui.partialLoader
          * @requires $http
          * @requires $compile
          * @requires $rootScope
          * @description
-         * Provides an API to open jQueryUI dialog modals. Each method requires a partial URL. That partial will then
-         * be fetched, compiled and displayed as the dialog. You can have an ng-controller tag on that partial to put
-         * controller logic relevant for that dialog.
-         *
-         * @example
+         * Allows the controller to dynamically load a partial and compile it. Any directives on that partial will go
+         * off. Useful for opening a new dialog window.
          */
-        .factory('uiDialog', ['$http', '$compile', '$rootScope', function($http, $compile, $rootScope) {
-            return {
-                /**
-                 * @name Ui.uiDialog#open
-                 * @methodOf Ui.uiDialog
-                 * @description
-                 * Opens a dialog window that functions similarly to an alert.
-                 * @param {string} templateUrl A URL for a template to populate the dialog.
-                 * @param {Object} options A configuration object, currently there are no options to configure.
-                 */
-                open: function(templateUrl, options) {
-                    $http.get(templateUrl).success(function(response) {
-                        var scope = $rootScope.$new();
-
-                        $compile(response)(scope, function(elm) {
-                            elm.dialog({
-                                modal: true
-                            });
-
-                            elm.on('dialogclose', function() {
-                                elm.remove();
-                            });
+        .provider('partialLoader', function() {
+            this.$get = ['$http', '$compile', '$rootScope', function($http, $compile, $rootScope) {
+                return {
+                    load: function(templateUrl, options) {
+                        $http.get(templateUrl).success(function(response) {
+                            $compile(response)($rootScope.$new());
                         });
-                    });
-                }
-            };
-        }])
+                    }
+                };
+            }];
+        })
 
         /**
          * @name Ui.uiLoader
          * @description
-         * Hides a DOM element and shows it only when loading take place. The element is being shown whenever an AJAX
-         * takes place or when a route change happens.
+         * Hides a DOM element and shows it only when loading take place. The element will only be shown during AJAX
+         * calls or during route changes.
+         *
+         * It can be configured with the following HTML attributes:
+         *   ui-duration: Determines how fast the element should be hidden and shown. Can be 'fast', 'medium' or
+         *     'slow'.
+         *
+         * @example
+         *   The following HTML tag would be turned into a draggable element:
+         *     <div data-ui-loader data-ui-duration="slow">loading...</div>
          */
         .directive('uiLoader', ['$rootScope', function($rootScope) {
             return {
                 link: function(scope, elm, attr, ctrl) {
-                    var duration = parseInt(attr.uiDuration, 10) || 'fast';
+                    var duration = scope.$eval(attr.uiDuration) || 'fast';
 
                     elm.hide();
 

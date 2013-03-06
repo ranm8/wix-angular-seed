@@ -58,7 +58,7 @@
 
             it('should turn a select element into a Chosen element', function() {
                 compile('<select ui-chosen ng-model="model"></select>')(rootScope);
-                expect(angular.element.prototype.chosen).toHaveBeenCalledWith({ disable_search : false, allow_single_deselect : false });
+                expect(angular.element.prototype.chosen).toHaveBeenCalledWith({ disable_search : undefined, allow_single_deselect : undefined });
 
                 compile('<select ui-chosen ng-model="model" ui-disable-search="false" ui-allow-single-deselect="true"></select>')(rootScope);
                 expect(angular.element.prototype.chosen).toHaveBeenCalledWith({ disable_search : false, allow_single_deselect : true });
@@ -154,7 +154,7 @@
                 angular.element.prototype.ColorPicker = jasmine.createSpy('colorPicker');
             });
 
-            it('should not do anything if the Chosen plugin is not available', function() {
+            it('should not do anything if the Colorpicker plugin is not available', function() {
                 delete angular.element.prototype.ColorPicker;
 
                 function $compile() {
