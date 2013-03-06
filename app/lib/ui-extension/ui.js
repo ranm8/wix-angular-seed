@@ -51,8 +51,8 @@
                     }
 
                     elm.chosen({
-                        disable_search: attr.uiDisableSearch === 'true',
-                        allow_single_deselect: attr.uiAllowSingleDeselect === 'true'
+                        disable_search: scope.$eval(attr.uiDisableSearch),
+                        allow_single_deselect: scope.$eval(attr.uiAllowSingleDeselect)
                     });
 
                     ctrl.$render = function() {
@@ -127,10 +127,10 @@
                     });
 
                     elm.slider({
-                        min: parseInt(attr.uiMin),
-                        max: parseInt(attr.uiMax),
+                        min: scope.$eval(attr.uiMin),
+                        max: scope.$eval(attr.uiMax),
                         orientation: attr.uiOrientation,
-                        step: parseInt(attr.uiStep)
+                        step: scope.$eval(attr.uiStep)
                     });
                 }
             };
@@ -201,34 +201,26 @@
                         return;
                     }
 
-                    function toBool(input) {
-                        if (typeof input === 'string') {
-                            return input.toLowerCase() === 'true';
-                        }
-
-                        return !!input;
-                    }
-
                     elm.datepicker({
                         altFormat: attr.uiAltFormat,
-                        autoSize: toBool(attr.uiAutoSize),
+                        autoSize: scope.$eval(attr.uiAutoSize),
                         buttonImage: attr.uiButtonImage,
-                        buttonImageOnly: toBool(attr.uiButtonImageOnly),
+                        buttonImageOnly: scope.$eval(attr.uiButtonImageOnly),
                         buttonText: attr.uiButtonText,
-                        changeMonth: toBool(attr.uiChangeMonth),
-                        changeYear: toBool(attr.uiChangeYear),
+                        changeMonth: scope.$eval(attr.uiChangeMonth),
+                        changeYear: scope.$eval(attr.uiChangeYear),
                         closeText: attr.uiCloseText,
-                        constrainInput: toBool(attr.uiConstrainInput),
+                        constrainInput: scope.$eval(attr.uiConstrainInput),
                         currentText: attr.uiCurrentText,
                         dateFormat: attr.uiDateFormat,
                         dayNames: scope.$eval(attr.uiDayNames),
                         dayNamesMin: scope.$eval(attr.uiDayNamesMin),
                         dayNamesShort: scope.$eval(attr.uiDayNamesShort),
                         duration: attr.uiDuration,
-                        firstDay: parseInt(attr.uiFirstDay),
-                        gotoCurrent: toBool(attr.uiGotoCurrent),
-                        hideIfNoPrevNext: toBool(attr.uiHideIfNoPrevNext),
-                        isRTL: toBool(attr.uiIsRtl),
+                        firstDay: scope.$eval(attr.uiFirstDay),
+                        gotoCurrent: scope.$eval(attr.uiGotoCurrent),
+                        hideIfNoPrevNext: scope.$eval(attr.uiHideIfNoPrevNext),
+                        isRTL: scope.$eval(attr.uiIsRtl),
                         maxDate: attr.uiMaxDate,
                         minDate: attr.uiMinDate,
                         monthNames: scope.$eval(attr.uiMonthNames),
@@ -274,7 +266,7 @@
                     elm.draggable({
                         axis: attr.uiAxis,
                         cursor: attr.uiCursor,
-                        delay: parseInt(attr.uiDelay)
+                        delay: scope.$eval(attr.uiDelay)
                     });
                 }
             };
@@ -371,29 +363,21 @@
                         return;
                     }
 
-                    function toBool(input) {
-                        if (typeof input === 'string') {
-                            return input.toLowerCase() === 'true';
-                        }
-
-                        return !!input;
-                    }
-
                     elm.dialog({
-                        autoOpen: toBool(attr.uiAutoOpen),
-                        closeOnEscape: toBool(attr.uiCloseOnEscape),
+                        autoOpen: scope.$eval(attr.uiAutoOpen),
+                        closeOnEscape: scope.$eval(attr.uiCloseOnEscape),
                         closeText: attr.uiCloseText,
                         dialogClass: attr.uiDialogClass,
-                        draggable: toBool(attr.uiDraggable),
-                        height: parseInt(attr.uiHeight),
-                        MaxHeight: parseInt(attr.uiMaxHeight),
-                        MaxWidth: parseInt(attr.uiMaxWidth),
-                        MinHeight: parseInt(attr.uiMinHeight),
-                        MinWidth: parseInt(attr.uiMinWidth),
-                        modal: toBool(attr.uiModal),
-                        resizable: toBool(attr.uiResizeable),
+                        draggable: scope.$eval(attr.uiDraggable),
+                        height: scope.$eval(attr.uiHeight),
+                        MaxHeight: scope.$eval(attr.uiMaxHeight),
+                        MaxWidth: scope.$eval(attr.uiMaxWidth),
+                        MinHeight: scope.$eval(attr.uiMinHeight),
+                        MinWidth: scope.$eval(attr.uiMinWidth),
+                        modal: scope.$eval(attr.uiModal),
+                        resizable: scope.$eval(attr.uiResizeable),
                         title: attr.uiTitle,
-                        width: parseInt(attr.uiWidth)
+                        width: scope.$eval(attr.uiWidth)
                     });
                 }
             };
@@ -412,14 +396,8 @@
             this.$get = ['$http', '$compile', '$rootScope', function($http, $compile, $rootScope) {
                 return {
                     load: function(templateUrl, options) {
-                        options = options || {};
-
                         $http.get(templateUrl).success(function(response) {
-                            var scope = $rootScope.$new();
-
-                            $compile(response)(scope, function(elm) {
-
-                            });
+                            $compile(response)($rootScope.$new());
                         });
                     }
                 };
@@ -443,7 +421,7 @@
         .directive('uiLoader', ['$rootScope', function($rootScope) {
             return {
                 link: function(scope, elm, attr, ctrl) {
-                    var duration = parseInt(attr.uiDuration) || 'fast';
+                    var duration = scope.$eval(attr.uiDuration) || 'fast';
 
                     elm.hide();
 
