@@ -75,12 +75,22 @@
         }])
 
         /**
-         * @name Ui.uiColorpicker
+         * @name Ui.uiColorPicker
          * @description
-         * Activates a DOM input element as a color picker element. Requires the ColorPicker plugin to be loaded for the
-         * directive to do have an effect.
+         * Activates a DOM select element as a Chosen element. It requires Chosen plugin to work but it will not throw
+         * any exceptions if it's not available. See @link { http://harvesthq.github.com/chosen } for more information.
+         *
+         * It can be configured with the following HTML attributes:
+         *   ui-disable-search: Disables the search option.
+         *   ui-allow-single-deselect: Allows a single deselect.
+         *
+         * @example
+         *   <select data-ui-chosen data-ng-model="model"
+         *           data-ui-disable-search="true"
+         *           data-ng-options="object for object in array">
+         *   </select>
          */
-        .directive('uiColorpicker', function() {
+        .directive('uiColorPicker', function() {
             return {
                 require: 'ngModel',
                 link: function(scope, elm, attr, ctrl) {
@@ -88,13 +98,17 @@
                         return;
                     }
 
-//                    elm.on('colorChanged', function(event) {
-//                        scope.$apply(function() {
-//                            ctrl.$setViewValue(event.selected_color);
-//                        });
-//                    });
+                    elm.on('colorChanged', function(event, data) {
+                        scope.$apply(function() {
+                            ctrl.$setViewValue(data.selected_color);
+                        });
+                    });
 
-                    elm.ColorPicker();
+                    ctrl.$render = function() {
+                        elm.ColorPicker({
+                            startWithColor: ctrl.$viewValue
+                        });
+                    };
                 }
             };
         })

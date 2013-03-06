@@ -3,7 +3,7 @@
     "corner": "square",
     "fontFamily": "Arial",
     "fontSize": "Medium",
-    "titleColor": "ffffff",
+    "titleColor": "#123456",
     "urlColor": "000000",
     "borderColor": "ffffff",
     "backgroundColor": "cccccc"
