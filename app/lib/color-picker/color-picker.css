@@ -189,10 +189,7 @@ button#selectColor {
 .color-selector:hover {
   background-position: 0 -28px;
 }
-.color-selector.active:hover,
-.color-selector .up {
-  background-position: 0 -55px;
-}
+
 .inner {
   width: 30px;
   height: 18px;
