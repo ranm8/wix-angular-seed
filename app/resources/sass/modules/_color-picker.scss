@@ -19,7 +19,7 @@ See <a href="#">Color picker module</a>
   & ~ .inner {
     @include inline-block(28px,16px,auto,auto,auto);
     content:"";
-    top: 8px;
+    top: 5px;
     left: -45px; }
 }
 div.colorPicker-picker { @include colorPicker; }
