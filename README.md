@@ -29,8 +29,6 @@ Directory layout
 
     app/                    --> all of your application files
       css/                  --> compiled css files, you are encouraged to compile your own css
-        style.css           --> Elad...
-        settings.css        --> Elad...
       images/               --> image files
       index.html            --> app layout file (the main html template file of the app)
       js/                   --> javascript files
