@@ -7,7 +7,7 @@
     /**
      * @todo docs
      */
-    window.angular.module('Base', ['Base.filters', 'Base.services', 'Base.directives', 'Base.config', 'Wix', 'Text', 'Ui'])
+    window.angular.module('Base', ['Base.filters', 'Base.services', 'Base.directives', 'Base.config', 'Wix'])
         /**
          * @todo docs
          */

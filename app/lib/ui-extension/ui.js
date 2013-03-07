@@ -146,7 +146,7 @@
                         elm.slider('option', 'value', ctrl.$viewValue);
                     };
 
-                    elm.on('slidechange', function(event, ui) {
+                    elm.on('slidestop', function(event, ui) {
                         scope.$apply(function() {
                             ctrl.$setViewValue(ui.value);
                         });
@@ -235,10 +235,13 @@
                         minDate: attr.uiMinDate,
                         monthNames: scope.$eval(attr.uiMonthNames),
                         showOn: attr.uiShowOn,
-                        yearRange: attr.uiYearRange,
-                        onSelect: function(date) {
+                        yearRange: attr.uiYearRange
+                    });
+
+                    elm.datepicker('option', 'onSelect', function(date) {
+                        scope.$apply(function() {
                             ctrl.$setViewValue(date);
-                        }
+                        });
                     });
                 }
             };
