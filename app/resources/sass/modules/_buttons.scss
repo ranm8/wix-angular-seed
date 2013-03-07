@@ -24,7 +24,7 @@ TODO: On-the-fly button generator.
     $txtColor: $wixDark;
     $borderColor: $wixGray;
   }
-
+  background: $color;
   @include background($color linear-gradient($color 30%,$shadedColor 70%));
 
   padding: 5px 10px;
