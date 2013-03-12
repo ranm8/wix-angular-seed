@@ -23,3 +23,10 @@ $topPaneWidth: $settingsWindowWidth - ($settingsPadding * 3);
 $logoWidth: image-width("demo/logo.png") + 10px;
 $logoSectionWidth: $logoWidth + ($settingsPadding * 2);
 $connectSectionWidth: $topPaneWidth - $logoSectionWidth;
+
+// ******************************************************************************************************************************
+// Angular Mother-F-ing
+// ******************************************************************************************************************************
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
