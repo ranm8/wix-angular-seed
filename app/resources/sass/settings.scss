@@ -1,14 +1,14 @@
-@import "partials/helper.scss";
-@import "partials/demo.scss";
+@import "modules/helper.scss";
+@import "modules/demo.scss";
 
-@import "modules/buttons.scss";
-@import "modules/collapsible-arrow.scss";
-@import "modules/slider.scss";
-@import "modules/checkables.scss";
-@import "modules/color-picker.scss";
-@import "modules/date-picker.scss";
-@import "modules/dialog.scss";
+@import "partials/buttons.scss";
+@import "partials/collapsible-arrow.scss";
+@import "partials/slider.scss";
+@import "partials/checkables.scss";
+@import "partials/color-picker.scss";
+@import "partials/date-picker.scss";
+@import "partials/dialog.scss";
 
-@import "partials/settings-window.scss";
-@import "partials/accordion.scss";
-@import "partials/jquery-date-picker.scss";
+@import "modules/settings-window.scss";
+@import "modules/accordion.scss";
+@import "modules/jquery-date-picker.scss";

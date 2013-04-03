@@ -12,7 +12,7 @@ preferred_syntax = :scss
 sprite_engine = :oily_png
 project_type = :stand_alone
 output_style = :nested
-#line_comments = false
+line_comments = false
 #sass_options = {:debug_info => true}
 
 # You can select your preferred output style here (can be overridden via the command line):
