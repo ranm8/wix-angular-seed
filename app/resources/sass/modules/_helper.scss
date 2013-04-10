@@ -1,4 +1,15 @@
 // ******************************************************************************************************************************
+// Variables
+// ******************************************************************************************************************************
+$wixBlue: #0099ff;
+$wixBright: #f6f6f6;
+$wixBrightGray: #8f8f8f;
+$wixGray: #b5b5b5;
+$wixDarkGray: #a8a8a8;
+$wixDark: #3a3a3a;
+$wixDarker: #363636;
+
+// ******************************************************************************************************************************
 // Partials
 // ******************************************************************************************************************************
 @import "compass/css3";
@@ -7,22 +18,10 @@
 @import "partials/background-image.scss";
 @import "partials/inline-block.scss";
 @import "partials/rotate-element.scss";
-
-// ******************************************************************************************************************************
-// Variables
-// ******************************************************************************************************************************
-$wixBlue: #0099ff;
-$wixBright: #f6f6f6;
-$wixGray: #c5c5c5;
-$wixDark: #3a3a3a;
-
-// Settings window variables
-$settingsPadding: 20px;
-$settingsWindowWidth: 620px;
-$topPaneWidth: $settingsWindowWidth - ($settingsPadding * 3);
-$logoWidth: image-width("demo/logo.png") + 10px;
-$logoSectionWidth: $logoWidth + ($settingsPadding * 2);
-$connectSectionWidth: $topPaneWidth - $logoSectionWidth;
+@import "partials/font-family.scss";
+@import "partials/buttons.scss";
+@import "partials/styled-item.scss";
+@import "partials/dialog.scss";
 
 // ******************************************************************************************************************************
 // Angular Mother-F-ing

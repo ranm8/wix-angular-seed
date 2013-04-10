@@ -17,7 +17,7 @@ TODO: On-the-fly button generator.
 
 @mixin wixButton($color) {
   $shadedColor: shade($color,15%);
-  $txtColor: $wixBright;
+  $txtColor: #fff;
   $borderColor: shade($wixGray,15%);
 
   @if lightness($color) >= 60% {

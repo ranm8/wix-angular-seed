@@ -1,0 +1,45 @@
+@mixin styled_item($width,$height) {
+	@include box-sizing("border-box");
+	@include inline-block($width,$height,auto,top,auto);
+	border-radius: 8px;
+	border: 1px solid #c5c5c5;
+	position: relative;
+	background: #fff;
+	margin: 14px 0 0 14px;
+  font-size: 14px;
+	&:nth-child(4n+1) { margin-left: 0; }
+}
+
+// Styled application advanced
+// ------------------------------------------------------------------------------------------------------------------------------
+@mixin styled_item_advanced($width,$height) {
+  @include styled_item($width,$height);
+  .item_image {
+    border-radius: 8px 8px 0 0;
+    height: 80px;
+    position: absolute;
+    width: 100%; }
+  .item_details {
+    @include box-sizing("border-box");
+    @include transition(all 0.2s linear 0.1s);
+    @include inline-block(100%,45px,auto,auto,auto);
+    border-radius: 0 0 8px 8px;
+    position: absolute;
+    pointer-events: none;
+    overflow: hidden;
+    bottom: 0;
+    padding: 5px;
+    color: #808080;
+    background: #fff;
+    border-top: 1px solid #cacaca; }
+  .item_headline {
+    @include transition(all 0.4s linear 0.1s);
+    font-size: 15px;
+    line-height: 1.2;
+    text-align: center;
+    color: #4c4c4c;
+    font-family: "helvetica45"; }
+  .item_cost {
+    margin-bottom: 10px;
+    text-align: center; }
+}

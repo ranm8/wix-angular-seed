@@ -1,14 +1,28 @@
 @import "modules/helper.scss";
-@import "modules/demo.scss";
 
-@import "partials/buttons.scss";
+// ******************************************************************************************************************************
+// Variables
+// ******************************************************************************************************************************
+$settingsPadding: 20px;
+$settingsWindowWidth: 620px;
+$topPaneWidth: $settingsWindowWidth - ($settingsPadding * 3);
+$logoWidth: image-width("demo/logo.png") + 10px;
+$logoSectionWidth: $logoWidth + ($settingsPadding * 2);
+$connectSectionWidth: $topPaneWidth - $logoSectionWidth;
+
+// ******************************************************************************************************************************
+// Partials
+// ******************************************************************************************************************************
 @import "partials/collapsible-arrow.scss";
 @import "partials/slider.scss";
 @import "partials/checkables.scss";
 @import "partials/color-picker.scss";
 @import "partials/date-picker.scss";
-@import "partials/dialog.scss";
 
+// ******************************************************************************************************************************
+// Modules
+// ******************************************************************************************************************************
+@import "modules/demo.scss";
 @import "modules/settings-window.scss";
 @import "modules/accordion.scss";
 @import "modules/jquery-date-picker.scss";
